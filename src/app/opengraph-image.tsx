@@ -18,12 +18,12 @@ export default async function OG() {
           justifyContent: "center",
           backgroundColor: "white",
           backgroundImage:
-            "linear-gradient(to bottom right, #E0E7FF 25%, #ffffff 50%, #CFFAFE 75%)",
+            "linear-gradient(to bottom right, #000000 25%, #ffffff 50%, #000000 75%)",
         }}
       >
         <img
           src={new URL("../../public/images/logo.png", import.meta.url).toString()}
-          alt="Precedent Logo"
+          alt="Divij Jain Website Logo"
           tw="w-20 h-20 mb-4 opacity-95"
         />
         <h1

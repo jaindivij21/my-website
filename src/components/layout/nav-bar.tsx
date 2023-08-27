@@ -1,8 +1,11 @@
 "use client"
+
+// Essential Imports
 import * as React from "react"
 import Link from "next/link"
+import { usePathname } from 'next/navigation'
 
-import { cn } from "@/lib/utils"
+// Component Imports
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -10,13 +13,22 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
+  HeaderNavigationMenuTriggerStyle
 } from "@/components/shared/ui/navigation-menu"
+import HeaderSelection from "../shared/icons/header-selection"
 import { Logo } from "../shared/icons"
 
-export const NavBar = () => {
+// Utility Imports
+import { cn } from "@/lib/utils"
 
-  const blogs: { title: string; href: string; description: string }[] = [
+// NavBar Component
+// The navigation bar component for the website.
+export const NavBar = () => {
+  const pathname = usePathname()
+  const [activeRoute, setActiveRoute] = React.useState(pathname)
+
+  // Blog Subheadings
+  const blogSubheadings: { title: string; href: string; description: string }[] = [
     {
       title: "Lifestyle and Travel",
       href: "/blog/lifestyle-travel",
@@ -29,32 +41,53 @@ export const NavBar = () => {
     }
   ]
 
+  // About Subheadings
+  const aboutSubheadings: { title: string; href: string; description: string }[] = [
+    {
+      title: "Resume",
+      href: "/profile/resume",
+      description: "Portfolio showcasing my professional journey."
+    },
+    {
+      title: "About Me",
+      href: "/profile/me",
+      description: "A little bit about me."
+    },
+    {
+      title: "Contact Me",
+      href: "/profile/about-me#contact",
+      description: "Get in touch."
+    }
+  ]
+
   return (
     <nav>
       <NavigationMenu>
         <NavigationMenuList>
 
           {/* Home */}
-          <NavigationMenuItem>
+          <NavigationMenuItem className="relative">
+            {activeRoute === "/" && <HeaderSelection />}
             <Link href="/" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink className={HeaderNavigationMenuTriggerStyle()}>
                 Home
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
 
           {/* Blog */}
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Blog</NavigationMenuTrigger>
+          <NavigationMenuItem className="relative">
+            {activeRoute.startsWith("/blog") && <HeaderSelection />}
+            <NavigationMenuTrigger className={HeaderNavigationMenuTriggerStyle()}>Blog</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {blogs.map((blog) => (
+                {blogSubheadings.map((subheading) => (
                   <ListItem
-                    key={blog.title}
-                    title={blog.title}
-                    href={blog.href}
+                    key={subheading.title}
+                    title={subheading.title}
+                    href={subheading.href}
                   >
-                    {blog.description}
+                    {subheading.description}
                   </ListItem>
                 ))}
               </ul>
@@ -62,54 +95,57 @@ export const NavBar = () => {
           </NavigationMenuItem>
 
           {/* Content */}
-          <NavigationMenuItem>
+          <NavigationMenuItem className="relative">
+            {activeRoute.startsWith("/content") && <HeaderSelection />}
             <Link href="/content" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink className={HeaderNavigationMenuTriggerStyle()}>
                 Content
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
 
           {/* Shop */}
-          <NavigationMenuItem>
+          <NavigationMenuItem className="relative">
+            {activeRoute.startsWith("/shop") && <HeaderSelection />}
             <Link href="/shop" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink className={HeaderNavigationMenuTriggerStyle()}>
                 Shop
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
 
           {/* About */}
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>About</NavigationMenuTrigger>
+          <NavigationMenuItem className="relative">
+            {activeRoute.startsWith("/profile") && <HeaderSelection />}
+            <NavigationMenuTrigger className={HeaderNavigationMenuTriggerStyle()}>About</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
-                    <a
+                    <Link
                       className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                       href="/"
                     >
-                      <Logo />
+                      <Logo className="w-full" />
                       <div className="mb-2 mt-4 text-lg font-medium">
-                        shadcn/ui
+                        Divij Jain
                       </div>
                       <p className="text-sm leading-tight text-muted-foreground">
-                        Beautifully designed components built with Radix UI and
-                        Tailwind CSS.
+                        digital alchemist, globetrotter,
+                        forever pursuing wisdom.
                       </p>
-                    </a>
+                    </Link>
                   </NavigationMenuLink>
                 </li>
-                <ListItem href="/docs" title="Introduction">
-                  Re-usable components built using Radix UI and Tailwind CSS.
-                </ListItem>
-                <ListItem href="/docs/installation" title="Installation">
-                  How to install dependencies and structure your app.
-                </ListItem>
-                <ListItem href="/docs/primitives/typography" title="Typography">
-                  Styles for headings, paragraphs, lists...etc
-                </ListItem>
+                {aboutSubheadings.map((subheading) => (
+                  <ListItem
+                    key={subheading.title}
+                    title={subheading.title}
+                    href={subheading.href}
+                  >
+                    {subheading.description}
+                  </ListItem>
+                ))}
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
