@@ -35,7 +35,7 @@ export default async function HomeLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="dark">
         {/* SECTION: Header */}
         <Header />
 
