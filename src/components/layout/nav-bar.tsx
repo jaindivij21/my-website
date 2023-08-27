@@ -16,6 +16,7 @@ import {
   HeaderNavigationMenuTriggerStyle
 } from "@/components/shared/ui/navigation-menu"
 import HeaderSelection from "../shared/icons/header-selection"
+import Icon from "../shared/ui/icon"
 import { Logo } from "../shared/icons"
 
 // Utility Imports
@@ -28,35 +29,40 @@ export const NavBar = () => {
   const [activeRoute, setActiveRoute] = React.useState(pathname)
 
   // Blog Subheadings
-  const blogSubheadings: { title: string; href: string; description: string }[] = [
+  const blogSubheadings: { title: string; href: string; description: string, iconName: string }[] = [
     {
       title: "Lifestyle and Travel",
       href: "/blog/lifestyle-travel",
-      description: "Globetrotting to curate life's gallery."
+      description: "Globetrotting to curate life's gallery.",
+      iconName: 'compass'
     },
     {
       title: "Technology",
       href: "/blog/technology",
-      description: "Navigating the digital frontier."
+      description: "Navigating the digital frontier.",
+      iconName: 'binary'
     }
   ]
 
   // About Subheadings
-  const aboutSubheadings: { title: string; href: string; description: string }[] = [
+  const aboutSubheadings: { title: string; href: string; description: string, iconName: string }[] = [
     {
       title: "Resume",
       href: "/profile/resume",
-      description: "Portfolio showcasing my professional journey."
+      description: "Portfolio showcasing my professional journey.",
+      iconName: 'award'
     },
     {
       title: "About Me",
       href: "/profile/me",
-      description: "A little bit about me."
+      description: "A little bit about me.",
+      iconName: 'venetian-mask'
     },
     {
       title: "Contact Me",
       href: "/profile/about-me#contact",
-      description: "Get in touch."
+      description: "Get in touch.",
+      iconName: 'at-sign'
     }
   ]
 
@@ -86,6 +92,7 @@ export const NavBar = () => {
                     key={subheading.title}
                     title={subheading.title}
                     href={subheading.href}
+                    icon={subheading.iconName}
                   >
                     {subheading.description}
                   </ListItem>
@@ -142,6 +149,7 @@ export const NavBar = () => {
                     key={subheading.title}
                     title={subheading.title}
                     href={subheading.href}
+                    icon={subheading.iconName}
                   >
                     {subheading.description}
                   </ListItem>
@@ -158,8 +166,8 @@ export const NavBar = () => {
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<"a"> & { icon: any; }
+>(({ className, title, icon, children, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
@@ -171,7 +179,10 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
+          <div className="flex items-center space-x-2">
+            <Icon name={icon} size={16} />
+            <div className="text-sm font-medium leading-none">{title}</div>
+          </div>
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
             {children}
           </p>

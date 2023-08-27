@@ -1,9 +1,12 @@
-// Auth Button on Header
+import { LogIn } from "lucide-react"
+import { Button } from "../shared/ui/button"
 
-export const AuthButton = () => {
+const AuthButton = () => {
   return (
-    <div>
-      Login
-    </div>
+    <Button variant="outline">
+      <LogIn className="mr-2 h-4 w-4" /> Login
+    </Button>
   )
 }
+
+export default AuthButton;
