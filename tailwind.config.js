@@ -21,13 +21,6 @@ module.exports = {
       },
     },
     extend: {
-      colors: {
-        text: "#ffffff",
-        background: "#000000",
-        primary: "#91FF3A",
-        secondary: "#1e1e1e",
-        accent: "#f6f609",
-      },
       fontFamily: {
         display: ["var(--font-sf)", "system-ui", "sans-serif"],
         default: ["var(--font-inter)", "system-ui", "sans-serif"],
