@@ -10,24 +10,26 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 // Interface Imports
-import { NavigationMenuTriggerProps } from "./interfaces/navigation-menu.interface"
+import { NavigationMenuProps, NavigationMenuTriggerProps, NavigationMenuViewportProps } from "./interfaces/navigation-menu.interface"
 
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
->(({ className, children, ...props }, ref) => (
-  <NavigationMenuPrimitive.Root
-    ref={ref}
-    className={cn(
-      "relative z-10 flex max-w-max flex-1 items-center justify-center",
-      className
-    )}
-    {...props}
-  >
-    {children}
-    <NavigationMenuViewport />
-  </NavigationMenuPrimitive.Root>
-))
+  NavigationMenuProps
+>(({ className, outerViewportClassName = "", viewportClassName = "", children, ...props }, ref) => {
+  return (
+    <NavigationMenuPrimitive.Root
+      ref={ref}
+      className={cn(
+        "relative z-10 flex max-w-max flex-1 items-center justify-center",
+        className
+      )}
+      {...props}
+    >
+      {children}
+      <NavigationMenuViewport outerClassName={outerViewportClassName} className={viewportClassName} />
+    </NavigationMenuPrimitive.Root>
+  )
+})
 NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName
 
 const NavigationMenuList = React.forwardRef<
@@ -53,6 +55,10 @@ const navigationMenuTriggerStyle = cva(
 
 const HeaderNavigationMenuTriggerStyle = cva(
   "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent	px-4 py-2 text-sm font-medium transition-colors hover:bg-transparent hover:underline hover:underline-offset-2 hover:decoration-2 hover:decoration-brand-primaryAccent hover:text-accent-foreground focus:bg-transparent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent"
+)
+
+const HeaderNavigationMenuTriggerMobileStyle = cva(
+  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent	px-4 py-2 text-lg font-medium transition-colors hover:bg-transparent hover:underline hover:underline-offset-2 hover:decoration-2 hover:decoration-brand-primaryAccent hover:text-accent-foreground focus:bg-transparent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-transparent data-[state=open]:bg-transparent"
 )
 
 const NavigationMenuTrigger = React.forwardRef<
@@ -94,9 +100,9 @@ const NavigationMenuLink = NavigationMenuPrimitive.Link
 
 const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
->(({ className, ...props }, ref) => (
-  <div className={cn("absolute left-0 top-full flex justify-center")}>
+  NavigationMenuViewportProps
+>(({ className, outerClassName = "", ...props }, ref) => (
+  <div className={cn("absolute left-0 top-full flex justify-center", outerClassName)}>
     <NavigationMenuPrimitive.Viewport
       className={cn(
         "origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]",
@@ -131,6 +137,7 @@ NavigationMenuIndicator.displayName =
 export {
   navigationMenuTriggerStyle,
   HeaderNavigationMenuTriggerStyle,
+  HeaderNavigationMenuTriggerMobileStyle,
   NavigationMenu,
   NavigationMenuList,
   NavigationMenuItem,

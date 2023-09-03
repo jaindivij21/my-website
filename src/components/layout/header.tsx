@@ -12,7 +12,25 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-10 bg-gradient-to-b from-black to-transparent backdrop-blur-sm backdrop-opacity-90">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+
+        {/* Mobile */}
+        <div className="flex sm:hidden items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" scroll={false}>
+            <Logo />
+          </Link>
+
+          <div className="flex items-center justify-between space-x-2">
+            {/* Navbar */}
+            <NavBar />
+
+            {/* Auth Button */}
+            <AuthButton />
+          </div>
+        </div>
+
+        {/* Desktop */}
+        <div className="hidden sm:flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" scroll={false}>
             <Logo
@@ -25,6 +43,7 @@ export const Header = () => {
           {/* Auth Button */}
           <AuthButton />
         </div>
+
       </div>
     </header>
   )

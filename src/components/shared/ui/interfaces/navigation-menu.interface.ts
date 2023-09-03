@@ -6,3 +6,16 @@ export interface NavigationMenuTriggerProps
   > {
   showChevron?: boolean;
 }
+
+export interface NavigationMenuProps
+  extends React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root> {
+  viewportClassName?: string;
+  outerViewportClassName?: string;
+}
+
+export interface NavigationMenuViewportProps
+  extends React.ComponentPropsWithoutRef<
+    typeof NavigationMenuPrimitive.Viewport
+  > {
+  outerClassName?: string;
+}
