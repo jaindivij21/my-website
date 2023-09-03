@@ -39,6 +39,7 @@ export const NavBar = () => {
   const [activeRoute, setActiveRoute] = useState<string>(pathname)
 
   useEffect(() => {
+    // Fetches the pathname and sets the active route for the header selection graphic.
     setActiveRoute(pathname)
   }, [pathname])
 
@@ -86,10 +87,16 @@ export const NavBar = () => {
       <>
         <div className="sm:hidden flex">
           <Sheet>
+
+            {/* SECTION: Trigger Button */}
             <SheetTrigger>
               <Menu />
             </SheetTrigger>
+
+            {/* SECTION: Sheet Content */}
             <SheetContent>
+
+              {/* SUBSECTION: Sheet Content Header */}
               <SheetHeader className="mr-8">
                 <Link
                   className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
@@ -105,6 +112,8 @@ export const NavBar = () => {
                   </p>
                 </Link>
               </SheetHeader>
+
+              {/* SUBSECTION: Sheet Content Menus */}
               <NavigationMenu
                 orientation="vertical"
                 className="justify-start mt-8 max-w-none"
@@ -114,14 +123,16 @@ export const NavBar = () => {
                 <NavigationMenuList className="flex-col items-start space-y-4">
 
                   {/* Home */}
-                  <NavigationMenuItem className="relative">
-                    {activeRoute === "/" && <HeaderSelection className="scale-110" />}
-                    <Link href="/" legacyBehavior passHref>
-                      <NavigationMenuLink className={HeaderNavigationMenuTriggerMobileStyle()}>
-                        Home
-                      </NavigationMenuLink>
-                    </Link>
-                  </NavigationMenuItem>
+                  <SheetClose asChild>
+                    <NavigationMenuItem className="relative">
+                      {activeRoute === "/" && <HeaderSelection className="scale-110" />}
+                      <Link href="/" legacyBehavior passHref>
+                        <NavigationMenuLink className={HeaderNavigationMenuTriggerMobileStyle()}>
+                          Home
+                        </NavigationMenuLink>
+                      </Link>
+                    </NavigationMenuItem>
+                  </SheetClose>
 
                   {/* Blog */}
                   <NavigationMenuItem className="relative">
@@ -185,13 +196,16 @@ export const NavBar = () => {
 
                 </NavigationMenuList>
               </NavigationMenu>
+
             </SheetContent>
+
           </Sheet>
         </div>
       </>
 
       {/* Desktop */}
       <>
+        {/* SECTION: Desktop Navigation Menu */}
         <NavigationMenu className="hidden sm:block">
           <NavigationMenuList>
 
@@ -289,6 +303,7 @@ export const NavBar = () => {
   )
 }
 
+// Helper Component for the submenus in the navigation bar.
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a"> & { icon: any; }
