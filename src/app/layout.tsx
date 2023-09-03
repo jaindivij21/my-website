@@ -6,9 +6,13 @@ import { Metadata } from 'next'
 // Component Imports
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { firaCode, glossAndBloom, homemadeApple, playfairDisplay, sourceSans3 } from "@/components/shared/fonts";
 
 // Style Imports
 import "./globals.css";
+
+// Utility Imports
+import { cn } from "@/lib/utils";
 
 // Metadata for the webpage
 export const metadata: Metadata = {
@@ -35,7 +39,17 @@ export default async function HomeLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body
+        className={cn(
+          glossAndBloom.variable,
+          playfairDisplay.variable,
+          sourceSans3.variable,
+          homemadeApple.variable,
+          firaCode.variable,
+          "dark",
+          "font-body"
+        )}
+      >
         {/* SECTION: Header */}
         <Header />
 
