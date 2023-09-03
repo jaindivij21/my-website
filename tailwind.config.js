@@ -69,8 +69,12 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        display: ["var(--font-sf)", "system-ui", "sans-serif"],
-        default: ["var(--font-inter)", "system-ui", "sans-serif"],
+        heading: ["var(--font-heading)", "system-ui", "sans-serif"],
+        body: ["var(--font-body)", "system-ui", "sans-serif"],
+        mono: ["var(--font-monospace)", "monospace"],
+        handwriting1: ["var(--font-handwriting-1)", "cursive"],
+        handwriting2: ["var(--font-handwriting-2)", "cursive"],
+        default: ["var(--font-body)", "system-ui", "sans-serif"],
       },
       keyframes: {
         // Fade up and down
