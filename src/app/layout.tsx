@@ -54,7 +54,7 @@ export default async function HomeLayout({
         <Header />
 
         {/* SECTION: Main Page Content */}
-        <main className="min-h-screen w-full -mt-16">
+        <main>
           {children}
         </main>
 
