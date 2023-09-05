@@ -6,7 +6,7 @@ import { Metadata } from 'next'
 // Component Imports
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { firaCode, glossAndBloom, homemadeApple, playfairDisplay, sourceSans3 } from "@/components/shared/fonts";
+import { northwell, firaCode, homemadeApple, playfairDisplay, sourceSans3 } from "@/components/shared/fonts";
 
 // Style Imports
 import "./globals.css";
@@ -41,7 +41,7 @@ export default async function HomeLayout({
     <html lang="en">
       <body
         className={cn(
-          glossAndBloom.variable,
+          northwell.variable,
           playfairDisplay.variable,
           sourceSans3.variable,
           homemadeApple.variable,
