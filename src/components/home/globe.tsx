@@ -91,20 +91,32 @@ const Globe = () => {
   }
 
   return (
-    <div className="max-w-5xl w-full m-auto">
-      <AspectRatio ratio={1 / 1}>
-        <motion.canvas
-          ref={canvasRef}
-          onPointerDown={handlePointerDown}
-          onPointerUp={handlePointerUp}
-          onPointerOut={handlePointerOut}
-          onMouseMove={handleMouseMove}
-          onTouchMove={handleTouchMove}
-          transition={{ type: 'spring', damping: 3000, mass: 100, stiffness: 50 }}
-          className="w-full h-full cursor-grab transition-opacity duration-1000 ease-in-out contain-layout contain-paint contain-size"
-        />
-      </AspectRatio>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 0.5,
+        ease: [0, 0.71, 0.2, 1.01]
+      }}
+      className="max-w-5xl w-full m-auto"
+    >
+      <motion.div
+        whileHover={{ scale: [null, 1.1, 1.05] }}
+      >
+        <AspectRatio ratio={1 / 1}>
+          <motion.canvas
+            ref={canvasRef}
+            onPointerDown={handlePointerDown}
+            onPointerUp={handlePointerUp}
+            onPointerOut={handlePointerOut}
+            onMouseMove={handleMouseMove}
+            onTouchMove={handleTouchMove}
+            transition={{ type: 'spring', damping: 3000, mass: 100, stiffness: 50 }}
+            className="w-full h-full cursor-grab transition-opacity duration-1000 ease-in-out contain-layout contain-paint contain-size"
+          />
+        </AspectRatio >
+      </motion.div >
+    </motion.div >
   );
 }
 
