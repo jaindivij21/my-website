@@ -6,11 +6,19 @@ import { useEffect, useRef } from "react";
 // Component Imports
 import createGlobe from "cobe";
 import { AspectRatio } from "../shared/ui/aspect-ratio";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 const Globe = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
+
+  const r = useMotionValue(0)
+  const spring = useSpring(r, {
+    damping: 3000,
+    mass: 100,
+    stiffness: 50,
+  })
 
   useEffect(() => {
     const canvas = canvasRef.current || document.createElement('canvas');
@@ -27,28 +35,28 @@ const Globe = () => {
       phi: 0,
       theta: 0.3,
       dark: 1,
-      diffuse: 3,
+      diffuse: 2.8,
       mapSamples: 16000,
-      mapBrightness: 1.2,
+      mapBrightness: 1.1,
       baseColor: [1, 1, 1],
-      markerColor: [251 / 255, 100 / 255, 21 / 255],
+      markerColor: [251 / 255, 200 / 255, 21 / 255],
       glowColor: [1.2, 1.2, 1.2],
-      markers: [],
+      markers: [
+        { location: [28.61, 77.20], size: 0.1 },
+        { location: [40.71, -74.00], size: 0.1 }
+      ],
       onRender: (state) => {
-        // This prevents rotation while dragging
         if (!pointerInteracting.current) {
-          // Called on every animation frame.
-          // `state` will be an empty object, return updated params.
-          phi += 0.005
+          phi += 0.002
         }
-        state.phi = phi
+        state.phi = phi + r.get()
         state.width = width * 2
         state.height = width * 2
       }
     })
     setTimeout(() => canvas.style.opacity = '1')
     return () => globe.destroy()
-  }, [])
+  }, [r])
 
   // Functions
   const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
@@ -70,6 +78,7 @@ const Globe = () => {
     if (pointerInteracting.current !== null) {
       const delta = e.clientX - pointerInteracting.current;
       pointerInteractionMovement.current = delta;
+      r.set(delta / 200)
     }
   }
 
@@ -77,19 +86,21 @@ const Globe = () => {
     if (pointerInteracting.current !== null && e.touches[0]) {
       const delta = e.touches[0].clientX - pointerInteracting.current;
       pointerInteractionMovement.current = delta;
+      r.set(delta / 50)
     }
   }
 
   return (
     <div className="max-w-5xl w-full m-auto">
       <AspectRatio ratio={1 / 1}>
-        <canvas
+        <motion.canvas
           ref={canvasRef}
           onPointerDown={handlePointerDown}
           onPointerUp={handlePointerUp}
           onPointerOut={handlePointerOut}
           onMouseMove={handleMouseMove}
           onTouchMove={handleTouchMove}
+          transition={{ type: 'spring', damping: 3000, mass: 100, stiffness: 50 }}
           className="w-full h-full cursor-grab transition-opacity duration-1000 ease-in-out contain-layout contain-paint contain-size"
         />
       </AspectRatio>
