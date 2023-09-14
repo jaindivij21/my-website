@@ -3,8 +3,8 @@ import {
   Homemade_Apple, Fira_Code, Playfair_Display, Source_Sans_3
 } from "next/font/google";
 
-export const glossAndBloom = localFont({
-  src: "./Gloss_And_Bloom.ttf",
+export const northwell = localFont({
+  src: "./Northwell.otf",
   variable: "--font-handwriting-1",
 });
 

@@ -1,7 +1,10 @@
 export const Footer = () => {
   return (
-    <footer>
-      Footer
+    <footer className="mt-10">
+      {/* Container */}
+      <div className="max-w-7xl mx-auto px-4">
+        Footer
+      </div>
     </footer>
   )
 }

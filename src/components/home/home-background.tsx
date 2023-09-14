@@ -1,8 +1,16 @@
+// Essential Imports
 import Image from 'next/image'
+
+// Styles and Assets
 import mobileBackground from '../../../public/images/main-background-mobile.png'
 import desktopBackground from '../../../public/images/main-background.png'
 
-export default function HomeBackground() {
+// Utility Imports
+import { cn } from '@/lib/utils'
+
+export default function HomeBackground(
+  { className }: { className?: string }
+) {
   return (
     <>
       {/* Mobile Background */}
@@ -14,9 +22,10 @@ export default function HomeBackground() {
         style={{
           objectFit: 'cover',
           width: '100%',
+          zIndex: -1,
         }}
         fetchPriority='high'
-        className='sm:hidden'
+        className={cn('sm:hidden', className)}
       />
 
       {/* Desktop Background */}
@@ -28,9 +37,10 @@ export default function HomeBackground() {
         style={{
           objectFit: 'cover',
           width: '100%',
+          zIndex: -1,
         }}
         fetchPriority='high'
-        className='hidden sm:block'
+        className={cn('hidden sm:block', className)}
       />
     </>
   )
