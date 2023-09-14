@@ -7,8 +7,10 @@ import { useEffect, useRef } from "react";
 import createGlobe from "cobe";
 import { AspectRatio } from "../shared/ui/aspect-ratio";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import OrbitingText from "./orbiting-text";
 
 const Globe = () => {
+  const divRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
@@ -92,18 +94,20 @@ const Globe = () => {
 
   return (
     <motion.div
+      ref={divRef}
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
         duration: 0.5,
         ease: [0, 0.71, 0.2, 1.01]
       }}
-      className="max-w-5xl w-full m-auto"
+      className="max-w-5xl w-full m-auto overflow-hidden"
     >
       <motion.div
         whileHover={{ scale: [null, 1.1, 1.05] }}
       >
         <AspectRatio ratio={1 / 1}>
+          <OrbitingText divRef={divRef} />
           <motion.canvas
             ref={canvasRef}
             onPointerDown={handlePointerDown}
