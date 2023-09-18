@@ -15,17 +15,21 @@ import { Twitter, Patreon, BuyMeCoffee } from "../shared/icons"
 // Description: Social Icon Links for the website's footer.
 const SocialIconLinks = () => {
   return (
-    <div className="flex flex-col flex-wrap p-2.5 gap-x-8">
+    <div className="grid grid-cols-2 grid-rows-4 sm:grid-cols-3 sm:grid-rows-3 md:grid-cols-4 md:grid-rows-2 lg:grid-cols-2 lg:grid-flow-row-4 lg:p-2.5 x-sm:gap-x-4 md:gap-y-4 lg:gap-y-0 lg:gap-x-4 xl:gap-x-8">
       {/* Twitter */}
       <motion.a
         href="https://twitter.com/jaindivij_"
-        whileHover={{ scale: 1.2 }}
+        whileHover={{ scale: 1.1 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
         className="cursor-pointer"
       >
-        <div className="flex gap-2 items-center">
-          <Twitter />
-          <Button variant="ghost">Twitter</Button>
+        <div className="flex items-center gap-1 x-sm:gap-2">
+          <Twitter className="w-4 x-sm:w-6 lg:w-auto" />
+          <Button
+            className="text-[10px] 3x-sm:text-xs x-sm:text-sm h-8 px-0 lg:h-10 lg:px-4 lg:py-2"
+            variant="ghost">
+            Twitter
+          </Button>
         </div>
       </motion.a>
 
@@ -36,9 +40,13 @@ const SocialIconLinks = () => {
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
         className="cursor-pointer"
       >
-        <div className="flex gap-2 items-center">
-          <Linkedin />
-          <Button variant="ghost">LinkedIn</Button>
+        <div className="flex items-center gap-1 x-sm:gap-2">
+          <Linkedin className="w-4 x-sm:w-6 lg:w-auto" />
+          <Button
+            className="text-[10px] 3x-sm:text-xs x-sm:text-sm h-8 px-0 lg:h-10 lg:px-4 lg:py-2"
+            variant="ghost">
+            LinkedIn
+          </Button>
         </div>
       </motion.a>
 
@@ -49,9 +57,13 @@ const SocialIconLinks = () => {
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
         className="cursor-pointer"
       >
-        <div className="flex gap-2 items-center">
-          <Facebook />
-          <Button variant="ghost">Facebook</Button>
+        <div className="flex items-center gap-1 x-sm:gap-2">
+          <Facebook className="w-4 x-sm:w-6 lg:w-auto" />
+          <Button
+            className="text-[10px] 3x-sm:text-xs x-sm:text-sm h-8 px-0 lg:h-10 lg:px-4 lg:py-2"
+            variant="ghost">
+            Facebook
+          </Button>
         </div>
       </motion.a>
 
@@ -62,9 +74,13 @@ const SocialIconLinks = () => {
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
         className="cursor-pointer"
       >
-        <div className="flex gap-2 items-center">
-          <Instagram />
-          <Button variant="ghost">Instagram</Button>
+        <div className="flex items-center gap-1 x-sm:gap-2">
+          <Instagram className="w-4 x-sm:w-6 lg:w-auto" />
+          <Button
+            className="text-[10px] 3x-sm:text-xs x-sm:text-sm h-8 px-0 lg:h-10 lg:px-4 lg:py-2"
+            variant="ghost">
+            Instagram
+          </Button>
         </div>
       </motion.a>
 
@@ -75,9 +91,13 @@ const SocialIconLinks = () => {
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
         className="cursor-pointer"
       >
-        <div className="flex gap-2 items-center">
-          <Youtube />
-          <Button variant="ghost">Youtube</Button>
+        <div className="flex items-center gap-1 x-sm:gap-2">
+          <Youtube className="w-4 x-sm:w-6 lg:w-auto" />
+          <Button
+            className="text-[10px] 3x-sm:text-xs x-sm:text-sm h-8 px-0 lg:h-10 lg:px-4 lg:py-2"
+            variant="ghost">
+            Youtube
+          </Button>
         </div>
       </motion.a>
 
@@ -88,9 +108,13 @@ const SocialIconLinks = () => {
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
         className="cursor-pointer"
       >
-        <div className="flex gap-2 items-center">
-          <Github />
-          <Button variant="ghost">Github</Button>
+        <div className="flex items-center gap-1 x-sm:gap-2">
+          <Github className="w-4 x-sm:w-6 lg:w-auto" />
+          <Button
+            className="text-[10px] 3x-sm:text-xs x-sm:text-sm h-8 px-0 lg:h-10 lg:px-4 lg:py-2"
+            variant="ghost">
+            Github
+          </Button>
         </div>
       </motion.a>
 
@@ -101,9 +125,13 @@ const SocialIconLinks = () => {
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
         className="cursor-pointer"
       >
-        <div className="flex gap-2 items-center">
-          <Patreon />
-          <Button variant="ghost">Patreon</Button>
+        <div className="flex items-center gap-1 x-sm:gap-2">
+          <Patreon className="w-4 x-sm:w-6 lg:w-auto" />
+          <Button
+            className="text-[10px] 3x-sm:text-xs x-sm:text-sm h-8 px-0 lg:h-10 lg:px-4 lg:py-2"
+            variant="ghost">
+            Patreon
+          </Button>
         </div>
       </motion.a>
 
@@ -114,9 +142,13 @@ const SocialIconLinks = () => {
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
         className="cursor-pointer"
       >
-        <div className="flex gap-2 items-center">
-          <BuyMeCoffee />
-          <Button variant="ghost">Buy Me A Coffee</Button>
+        <div className="flex items-center gap-1 x-sm:gap-2">
+          <BuyMeCoffee className="w-4 x-sm:w-6 lg:w-auto" />
+          <Button
+            className="text-[10px] 3x-sm:text-xs x-sm:text-sm h-8 px-0 lg:h-10 lg:px-4 lg:py-2"
+            variant="ghost">
+            Buy Me Coffee
+          </Button>
         </div>
       </motion.a>
     </div>
