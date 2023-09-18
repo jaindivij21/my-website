@@ -17,16 +17,16 @@ import {
   NavigationMenuTrigger,
   HeaderNavigationMenuTriggerStyle,
   HeaderNavigationMenuTriggerMobileStyle
-} from "@/components/shared/ui/navigation-menu"
+} from "@/components/shared/ui/building-blocks/navigation-menu"
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTrigger,
   SheetClose,
-} from "@/components/shared/ui/sheet"
+} from "@/components/shared/ui/building-blocks/sheet"
 import HeaderSelection from "../shared/icons/header-selection"
-import Icon from "../shared/ui/icon"
+import Icon from "../shared/ui/building-blocks/icon"
 import { Logo } from "../shared/icons"
 
 // Utility Imports
@@ -102,7 +102,7 @@ export const NavBar = () => {
                   className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                   href="/"
                 >
-                  <Logo className="w-full" />
+                  <Logo color="white" className="w-full" />
                   <div className="mb-2 mt-4 text-lg font-medium">
                     Divij Jain
                   </div>
@@ -271,7 +271,7 @@ export const NavBar = () => {
                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                         href="/"
                       >
-                        <Logo className="w-full" />
+                        <Logo color="white" className="w-full" />
                         <div className="mb-2 mt-4 text-lg font-medium">
                           Divij Jain
                         </div>

@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   themeColor: "#000000"
 };
 
-// Home Layout Component
-// Layout for the website, which includes the header, footer, and analytics, and wraps the main content.
+// Component: Home Layout 
+// Description: Layout for the website, which includes the header, footer, and analytics, and wraps the main content.
 export default async function HomeLayout({
   children,
 }: {
