@@ -6,3 +6,5 @@ export { default as ExpandingArrow } from "./expanding-arrow";
 export { default as Github } from "./github";
 export { default as Twitter } from "./twitter";
 export { default as Google } from "./google";
+export { default as Patreon } from "./patreon";
+export { default as BuyMeCoffee } from "./buy-me-coffee";

@@ -1,10 +1,10 @@
 import { LogIn, UserCircle } from "lucide-react"
-import { Button } from "../shared/ui/button"
+import { Button } from "../shared/ui/building-blocks/button"
 import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "@/components/shared/ui/avatar"
+} from "@/components/shared/ui/building-blocks/avatar"
 
 
 const AuthButton = () => {
