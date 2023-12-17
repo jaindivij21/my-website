@@ -32,6 +32,9 @@ export const TextTicker = () => {
         clock={clock}
         loopDuration={10000}
         className="transform -rotate-6 overflow-hidden lg:min-h-[50px]"
+        style={{
+          WebkitMaskImage: "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)"
+        }}
       >
         <div className="grid grid-cols-1 grid-rows-1 justify-items-center">
           <div className="text-sm 3x-sm:text-base 2x-sm:text-lg x-sm:text-2xl sm:text-3xl md:text-4xl lg:text-[45px] xl:text-[58px] font-heading text-white italic tracking-wide font-semibold">

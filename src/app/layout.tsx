@@ -14,7 +14,7 @@ import "./globals.css";
 // Utility Imports
 import { cn } from "@/lib/utils";
 
-// Metadata for the webpage
+// Metadata and Viewport for the webpage
 export const metadata: Metadata = {
   title: "Divij Jain - In Pursuit Of Living The Adventure",
   description:
@@ -26,9 +26,11 @@ export const metadata: Metadata = {
       "Embark on a captivating journey through code and wanderlust with Divij Jain, a software engineer in pursuit of adventure and exploration.",
     creator: `@${process.env.TWITTER_HANDLE}`,
   },
-  metadataBase: new URL("https://divijjain.com"),
-  themeColor: "#000000"
+  metadataBase: new URL("https://divijjain.com")
 };
+export const viewport = {
+  themeColor: "#000000"
+}
 
 // Component: Home Layout 
 // Description: Layout for the website, which includes the header, footer, and analytics, and wraps the main content.

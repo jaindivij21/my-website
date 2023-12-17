@@ -2,6 +2,7 @@
 import HomeBackground from "@/components/home/home-background";
 import Globe from "@/components/home/globe";
 import TextTicker from "@/components/home/text-ticker";
+import AuxillaryInfo from "@/components/home/auxillary-info";
 
 export default async function HomePage() {
   return (
@@ -13,13 +14,13 @@ export default async function HomePage() {
       <div className="max-w-7xl mx-auto px-4">
 
         {/* Content */}
-        <div className="pt-28 2x-sm:pt-36 sm:pt-24 lg:pt-52">
+        <div className="flex flex-col space-y-20 pt-20 2x-sm:pt-36 sm:pt-24 lg:pt-52">
 
-          {/* SECTION: Header & Globe */}
-          <div className="flex flex-col">
+          {/* SECTION: Header, Globe and Ticker */}
+          <section id="hero" className="flex flex-col">
 
             {/* SUBSECTION: Main Page Title */}
-            <section id="title" className="cursor-none">
+            <div id="title" className="cursor-none">
               <div className="flex flex-col items-center hover:scale-125 transition-transform duration-500">
                 <div className="relative">
                   <h2 className="absolute font-handwriting1 font-thin text-brand-primaryAccent text-3xl md:text-4xl lg:text-6xl tracking-[.20em] opacity-50 blur-[3px]">
@@ -33,49 +34,36 @@ export default async function HomePage() {
                   Living The Adventure
                 </h1>
               </div>
-            </section>
+            </div>
 
             {/* SUBSECTION: Globe */}
-            <section id="globe">
+            <div id="globe">
               <Globe />
-            </section>
+            </div>
 
             {/* SUBSECTION: Ticker */}
-            <section id="ticker">
+            <div id="ticker">
               <TextTicker />
-            </section>
+            </div>
 
-            <section>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-              <div>Hello</div>
-            </section>
-          </div>
+          </section>
+
+          {/* SUBSECTION: Auxillary Information Section */}
+          <section id="auxillary-info">
+            <AuxillaryInfo />
+          </section>
+
+          {/* SUBSECTION: Cards */}
+          <section id="cards">
+            <div id="featured-blog-card">
+            </div>
+            <div id="featured-content-card">
+            </div>
+            <div id="featured-shop-card">
+            </div>
+            <div id="about-me-card">
+            </div>
+          </section>
         </div>
       </div>
     </>
