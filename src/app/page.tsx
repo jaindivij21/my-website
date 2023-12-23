@@ -3,6 +3,7 @@ import HomeBackground from "@/components/home/home-background";
 import Globe from "@/components/home/globe";
 import TextTicker from "@/components/home/text-ticker";
 import AuxillaryInfo from "@/components/home/auxillary-info";
+import PersonalGalleryCard from "@/components/home/personal-gallery-card";
 
 export default async function HomePage() {
   return (
@@ -48,21 +49,24 @@ export default async function HomePage() {
 
           </section>
 
-          {/* SUBSECTION: Auxillary Information Section */}
+          {/* SECTION: Auxillary Information Section */}
           <section id="auxillary-info">
             <AuxillaryInfo />
           </section>
 
-          {/* SUBSECTION: Cards */}
+          {/* SECTION: Cards */}
           <section id="cards">
             <div id="featured-blog-card">
-            </div>
-            <div id="featured-content-card">
             </div>
             <div id="featured-shop-card">
             </div>
             <div id="about-me-card">
+              <PersonalGalleryCard />
             </div>
+          </section>
+
+          {/* SECTION: Newsletter */}
+          <section id="newsletter">
           </section>
         </div>
       </div>

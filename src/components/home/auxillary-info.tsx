@@ -61,7 +61,7 @@ export const AuxillaryInfo = () => {
 
         {/* SUBSECTION: Content */}
         <div className='flex flex-col items-center justify-center h-full font-mono'>
-          <div className='flex items-center gap-x-4 font-light text-3xl'>
+          <div className='flex items-center gap-x-4 font-light text-2xl 3x-sm:text-3xl'>
             <CloudRain />
             <div>
               {location}
