@@ -81,6 +81,10 @@ module.exports = {
         handwriting2: ["var(--font-handwriting-2)", "cursive"],
         default: ["var(--font-body)", "system-ui", "sans-serif"],
       },
+      backgroundImage: {
+        grain:
+          "url('https://lh3.googleusercontent.com/pw/ABLVV864vdRebQbjjnJDaw6ochKF3230v1vhUUU_e5Ag77DAHsBE7jD0Fk9B5MIVEtCi6frVH_NJ2WpVEW0bUZ0OyFb-K-WD0oaMgWOYxZG7_el7ZW7xX4d83DC9biJY6_5JPJzWoUH0jInjrkaEFzIKPstHWw=w400-h400-s-no-gm')",
+      },
       keyframes: {
         // Fade up and down
         "fade-up": {
@@ -127,6 +131,20 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        "personal-gallery-grain": {
+          "0%": { transform: "translate(20%, -15%)" },
+          "10%": { transform: "translate(-20%, -15%)" },
+          "20%, 100%": { transform: "translate(20%, -5%)" },
+          "30%": { transform: "translate(-20%, -5%)" },
+          "40%, 80%": { transform: "translate(20%, 5%)" },
+          "50%, 90%": { transform: "translate(-20%, 5%)" },
+          "60%": { transform: "translate(20%, 15%)" },
+          "70%": { transform: "translate(-20%, 15%)" },
+        },
+        "personal-gallery-images": {
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-102%)" },
+        },
       },
       animation: {
         // Fade up and down
@@ -138,6 +156,11 @@ module.exports = {
         // Accordion
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        // Personal Gallery
+        "personal-gallery-grain":
+          "personal-gallery-grain 6s steps(10) infinite;",
+        "personal-gallery-images":
+          "personal-gallery-images 12s linear infinite",
       },
     },
   },
