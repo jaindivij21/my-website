@@ -4,6 +4,8 @@ import Globe from "@/components/home/globe";
 import TextTicker from "@/components/home/text-ticker";
 import AuxillaryInfo from "@/components/home/auxillary-info";
 import PersonalGalleryCard from "@/components/home/personal-gallery-card";
+import Newsletter from "@/components/home/newsletter/newsletter";
+import WorksGalleryCard from "@/components/home/work-listing-card/work-listing-card";
 
 export default async function HomePage() {
   return (
@@ -12,7 +14,7 @@ export default async function HomePage() {
       <HomeBackground className="absolute top-0" />
 
       {/* Container */}
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 overflow-hidden">
 
         {/* Content */}
         <div className="flex flex-col space-y-20 pt-20 2x-sm:pt-36 sm:pt-24 lg:pt-52">
@@ -55,10 +57,11 @@ export default async function HomePage() {
           </section>
 
           {/* SECTION: Cards */}
-          <section id="cards">
-            <div id="featured-blog-card">
+          <section id="cards" className="flex flex-col gap-y-24">
+            <div id="featured-highlights-card">
             </div>
-            <div id="featured-shop-card">
+            <div id="work-listing-card">
+              <WorksGalleryCard />
             </div>
             <div id="about-me-card">
               <PersonalGalleryCard />
@@ -67,6 +70,7 @@ export default async function HomePage() {
 
           {/* SECTION: Newsletter */}
           <section id="newsletter">
+            <Newsletter />
           </section>
         </div>
       </div>

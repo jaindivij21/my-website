@@ -83,6 +83,7 @@
 @layer base {
   * {
     @apply border-border;
+    @apply scroll-smooth;
   }
   body {
     @apply bg-background text-foreground;

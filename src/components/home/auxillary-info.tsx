@@ -60,8 +60,8 @@ export const AuxillaryInfo = () => {
         />
 
         {/* SUBSECTION: Content */}
-        <div className='flex flex-col items-center justify-center h-full font-mono'>
-          <div className='flex items-center gap-x-4 font-light text-2xl 3x-sm:text-3xl'>
+        <div className='flex flex-col items-center justify-center h-full font-mono 3x-sm:text-xl lg:text-2xl'>
+          <div className='flex items-center gap-x-4 font-light'>
             <CloudRain />
             <div>
               {location}
@@ -71,7 +71,6 @@ export const AuxillaryInfo = () => {
           <div>
             <CurrentTime
               initialTime={now.getTime()}
-              className='text-2xl'
             />
           </div>
         </div>
