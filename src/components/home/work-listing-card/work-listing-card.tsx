@@ -10,6 +10,7 @@ import { Card, CardContent } from "../../shared/ui/building-blocks/card"
 
 // Util Imports
 import { MotionValue, motion, useScroll, useSpring, useTransform } from "framer-motion"
+import useWindowSize from '@/lib/hooks/use-window-size'
 
 // Constant and Interface Imports
 import { WORK_LISTINGS } from "./constants/work-listing-card.constant"
@@ -43,7 +44,7 @@ export const WorksGalleryCard = () => {
     <div className='relative'>
       <Card
         ref={cardRef}
-        className="drop-shadow-2xl h-[calc(100vh-12rem)] overflow-scroll snap-y snap-mandatory relative"
+        className="drop-shadow-2xl h-[calc(100vh-16rem)] sm:h-[calc(100vh-12rem)] overflow-scroll snap-y snap-mandatory relative"
         style={{
           backgroundImage: `radial-gradient(ellipse, rgba(248,248,18,0.1) 20%, hsl(var(--background)) 75%), url(${backgroundGrid.src})`,
         }}
@@ -59,7 +60,7 @@ export const WorksGalleryCard = () => {
           ))}
         </CardContent>
       </Card>
-      <motion.div className="max-w-[90%] absolute bottom-16 left-0 right-0 h-2" style={{
+      <motion.div className="max-w-[90%] mx-auto my-0 absolute bottom-2 sm:bottom-16 left-0 right-0 h-2" style={{
         scaleX,
         background: 'radial-gradient(circle, rgba(248,248,18,0.5) 35%, rgba(9,9,11,0.60) 75%)'
       }} />
@@ -72,6 +73,8 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
   workItem: WorkItem,
   index: number
 }) => {
+  const { isMobile } = useWindowSize();
+
   // Parallax Hook for the Image Scroll
   const imageRef = useRef(null);
   const imageScrollProgress = useScroll({
@@ -82,24 +85,15 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
   const y = useParallax(imageScrollProgress.scrollYProgress, 300);
 
   return (
-    <section className='h-[calc(100vh-17rem)] snap-center relative'>
-      <div className='h-full flex flex-row justify-evenly	items-center'>
-        <div className='basis-1/2 h-full flex flex-col justify-center gap-y-2.5'>
-          <h2 className='text-4xl xl:text-5xl font-handwriting2 tracking-wide mb-8'>
-            <span className='bg-clip-text text-transparent bg-gradient-radial from-[#F0E703] to-[#B3DFA1]'>
-              {workItem.heading}
-            </span>
-          </h2>
-          <div className='flex flex-row items-center'>
-            <Icon name={workItem.icon_name} className='w-6 h-6 mr-4' />
-            <h4 className='text-xl xl:text-2xl font-heading tracking-wider uppercase font-semibold'>
-              {workItem.subheading}
-            </h4>
+    <section className='h-[calc(100vh-21rem)] sm:h-[calc(100vh-17rem)] snap-center relative'>
+      <div className='relative h-full flex flex-row justify-evenly items-center'>
+        {!isMobile && (
+          <div className='basis-1/2 h-full flex flex-col justify-center gap-y-2.5'>
+            <WorkListingItemDescription workItem={workItem} />
           </div>
-          <p className='tracking-wide	leading-6 text-gray-200'>{workItem.description}</p>
-        </div>
+        )}
 
-        <div ref={imageRef} className='w-[300px] h-[400px] lg:w-[390px] lg:h-[520px] xl:w-[360px] xl:h-[480px]'>
+        <div ref={imageRef} className='relative w-[390px] h-[520px] sm:w-[300px] sm:h-[400px] lg:w-[360px] lg:h-[480px] xl:w-[390px] xl:h-[520px]'>
           <AspectRatio ratio={3 / 4}>
             <Image
               src={workItem.image_url}
@@ -110,6 +104,14 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
               className='w-full h-full rounded-lg'
             />
           </AspectRatio>
+          {isMobile && (
+            <>
+              <div className='w-full absolute bottom-6 z-10 px-6'>
+                <WorkListingItemDescription workItem={workItem} />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black from-10% to-transparent w-full"></div>
+            </>
+          )}
         </div>
       </div>
 
@@ -130,6 +132,25 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
         ) : <></>
       }
     </section>
+  )
+}
+
+const WorkListingItemDescription = ({ workItem }: { workItem: WorkItem }) => {
+  return (
+    <>
+      <h2 className='text-3xl sm:text-4xl xl:text-5xl font-handwriting2 tracking-wide mb-8'>
+        <span className='bg-clip-text text-transparent bg-gradient-radial from-[#F0E703] to-[#B3DFA1]'>
+          {workItem.heading}
+        </span>
+      </h2>
+      <div className='mb-2 sm:mb-0 flex flex-row items-center'>
+        <Icon name={workItem.icon_name} className='w-4 h-4 mr-2 sm:w-6 sm:h-6 sm:mr-4' />
+        <h4 className='text-lg sm:text-xl xl:text-2xl font-heading tracking-wider uppercase font-semibold'>
+          {workItem.subheading}
+        </h4>
+      </div>
+      <p className='text-xs sm:text-base sm:tracking-wide sm:leading-6 text-gray-200'>{workItem.description}</p>
+    </>
   )
 }
 
