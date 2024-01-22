@@ -43,12 +43,12 @@ export const WorksGalleryCard = () => {
     <div className='relative'>
       <Card
         ref={cardRef}
-        className="drop-shadow-2xl h-[calc(100vh-15rem)] overflow-scroll snap-y snap-mandatory relative"
+        className="drop-shadow-2xl h-[calc(100vh-12rem)] overflow-scroll snap-y snap-mandatory relative"
         style={{
           backgroundImage: `radial-gradient(ellipse, rgba(248,248,18,0.1) 20%, hsl(var(--background)) 75%), url(${backgroundGrid.src})`,
         }}
       >
-        <CardContent className="p-10">
+        <CardContent className="p-10 space-y-5">
           {WORK_LISTINGS.map((workItem, index) => (
             <WorkListingItem
               cardRef={cardRef}
@@ -82,24 +82,24 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
   const y = useParallax(imageScrollProgress.scrollYProgress, 300);
 
   return (
-    <section className='h-[calc(100vh-20rem)] snap-center relative'>
+    <section className='h-[calc(100vh-17rem)] snap-center relative'>
       <div className='h-full flex flex-row justify-evenly	items-center'>
         <div className='basis-1/2 h-full flex flex-col justify-center gap-y-2.5'>
-          <h2 className='text-5xl font-handwriting2 tracking-wide mb-8'>
+          <h2 className='text-4xl xl:text-5xl font-handwriting2 tracking-wide mb-8'>
             <span className='bg-clip-text text-transparent bg-gradient-radial from-[#F0E703] to-[#B3DFA1]'>
               {workItem.heading}
             </span>
           </h2>
           <div className='flex flex-row items-center'>
             <Icon name={workItem.icon_name} className='w-6 h-6 mr-4' />
-            <h4 className='text-2xl font-heading tracking-wider uppercase font-semibold'>
+            <h4 className='text-xl xl:text-2xl font-heading tracking-wider uppercase font-semibold'>
               {workItem.subheading}
             </h4>
           </div>
           <p className='tracking-wide	leading-6 text-gray-200'>{workItem.description}</p>
         </div>
 
-        <div ref={imageRef} className='w-[390px] h-[520px]'>
+        <div ref={imageRef} className='w-[300px] h-[400px] lg:w-[390px] lg:h-[520px] xl:w-[360px] xl:h-[480px]'>
           <AspectRatio ratio={3 / 4}>
             <Image
               src={workItem.image_url}
@@ -115,7 +115,7 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
 
       {/* Indexes */}
       <motion.h2
-        className='absolute right-0 top-36 font-mono font-extrabold tracking-wide text-6xl drop-shadow-[5px_10px_20px_rgb(255,255,255)]'
+        className='absolute right-0 top-36 font-mono font-extrabold tracking-wide text-5xl xl:text-6xl drop-shadow-[5px_10px_20px_rgb(255,255,255)]'
         style={{ y }}
       >
         {`#00${index}`}
