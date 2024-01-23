@@ -7,9 +7,9 @@ export const WORK_LISTINGS: WorkItem[] = [
     image_alt: "lifestyle-blogs",
     icon_name: "compass",
     heading: "Vagabond Vignettes",
-    subheading: "Lifestyle/Travel Blog",
+    subheading: "Lifestyle Blog",
     description:
-      "Weaving timeless stories that echo the beauty of exploration. Join me on a journey of discovery, where each post paints a vivid picture of life's adventures, cultural nuances, and the magic found in every corner of our world.",
+      "Weaving timeless stories that echo the beauty of exploration. Join me on a journey of discovery, where each post paints a vivid picture of life's adventures.",
   },
   {
     image_url:
@@ -19,7 +19,7 @@ export const WORK_LISTINGS: WorkItem[] = [
     heading: "Byte Ballet",
     subheading: "Technology Blog",
     description:
-      "This is where the language of algorithms meets the choreography of code. From the waltz of data structures to the pirouettes of programming challenges, this is my digital dance floor. Join me in navigating the elegant chaos of computer science.",
+      "Where language of algorithms meets the choreography of code. From the waltz of data structures to the pirouettes of programming challenges, this is my digital dance floor.",
   },
   {
     image_url:
@@ -29,7 +29,7 @@ export const WORK_LISTINGS: WorkItem[] = [
     heading: "Visual Alchemy",
     subheading: "Storytelling",
     description:
-      "From Instagram snapshots to cinematic YouTube journeys, each piece is a visual narrative that transcends the limits of words. Join me in crafting stories that resonate, each frame a portal to emotions, moments, and tales waiting to unfold.",
+      "From snapshots to cinematic journeys, each piece is a visual narrative that transcends the limits of words. Craft stories that resonate, each frame a portal to emotions, moments, and tales waiting to unfold.",
   },
   {
     image_url:
@@ -39,7 +39,7 @@ export const WORK_LISTINGS: WorkItem[] = [
     heading: "Eclipsed Echoes",
     subheading: "Podcast",
     description:
-      "Join me in unraveling unheard stories, diverse perspectives, and captivating narratives that often remain eclipsed. From intimate interviews to explorations of untold topics, this podcast is a sanctuary for the curious minds seeking inspiration and connection.",
+      "Join me in unraveling unheard stories, diverse perspectives, and captivating narratives that often remain eclipsed. From intimate interviews to explorations of untold topics, this podcast is a sanctuary for the curious minds.",
   },
   {
     image_url:
@@ -49,6 +49,6 @@ export const WORK_LISTINGS: WorkItem[] = [
     heading: "Pixel Odyssey",
     subheading: "Prints Shop",
     description:
-      "Each print here is a condensed chapter blending my narrative, a place's essence, and the dreams held in each frame. Elevate your space with these prints, where every hue and shadow unveils a captivating tale.",
+      "Each print here is a condensed chapter blending my narrative, a place's essence, and the dreams held in each frame. Elevate your space with these prints.",
   },
 ];

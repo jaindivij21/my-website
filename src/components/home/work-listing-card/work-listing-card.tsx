@@ -18,7 +18,6 @@ import { WorkItem } from './models/work-listing.model'
 
 // Asset Imports
 import backgroundGrid from '../../../../public/images/background-grid.svg'
-import { ChevronsUp, ChevronsDown } from 'lucide-react';
 import Icon from '@/components/shared/ui/building-blocks/icon'
 
 // Functions
@@ -44,12 +43,12 @@ export const WorksGalleryCard = () => {
     <div className='relative'>
       <Card
         ref={cardRef}
-        className="drop-shadow-2xl h-[calc(100vh-16rem)] sm:h-[calc(100vh-12rem)] overflow-scroll snap-y snap-mandatory relative"
+        className="drop-shadow-2xl h-[32rem] overflow-scroll snap-y snap-mandatory relative"
         style={{
           backgroundImage: `radial-gradient(ellipse, rgba(248,248,18,0.1) 20%, hsl(var(--background)) 75%), url(${backgroundGrid.src})`,
         }}
       >
-        <CardContent className="p-10 space-y-5">
+        <CardContent className="p-0">
           {WORK_LISTINGS.map((workItem, index) => (
             <WorkListingItem
               cardRef={cardRef}
@@ -85,15 +84,16 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
   const y = useParallax(imageScrollProgress.scrollYProgress, 300);
 
   return (
-    <section className='h-[calc(100vh-21rem)] sm:h-[calc(100vh-17rem)] snap-center relative'>
-      <div className='relative h-full flex flex-row justify-evenly items-center'>
+    <section className='h-[32rem] p-6 snap-center relative'>
+      <div className='h-full flex flex-row justify-evenly items-center'>
         {!isMobile && (
           <div className='basis-1/2 h-full flex flex-col justify-center gap-y-2.5'>
             <WorkListingItemDescription workItem={workItem} />
           </div>
         )}
 
-        <div ref={imageRef} className='relative w-[390px] h-[520px] sm:w-[300px] sm:h-[400px] lg:w-[360px] lg:h-[480px] xl:w-[390px] xl:h-[520px]'>
+        {/* Image */}
+        <div ref={imageRef} className='w-[300px] h-[400px] relative'>
           <AspectRatio ratio={3 / 4}>
             <Image
               src={workItem.image_url}
@@ -106,10 +106,10 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
           </AspectRatio>
           {isMobile && (
             <>
-              <div className='w-full absolute bottom-6 z-10 px-6'>
+              <div className='w-full z-10 absolute bottom-5 px-5'>
                 <WorkListingItemDescription workItem={workItem} />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black from-10% to-transparent w-full rounded-lg"></div>
+              <div className="absolute inset-0 bg-gradient-to-t m:from-black  from-black from-30% 3x-sm:from-10% to-transparent w-full rounded-lg"></div>
             </>
           )}
         </div>
@@ -117,7 +117,7 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
 
       {/* Indexes */}
       <motion.h2
-        className='absolute right-0 top-36 font-mono font-extrabold tracking-wide text-5xl xl:text-6xl drop-shadow-[5px_10px_20px_rgb(255,255,255)]'
+        className='absolute top-32 right-[5%] font-mono font-extrabold tracking-wide text-5xl xl:text-6xl drop-shadow-[5px_10px_20px_rgb(255,255,255)]'
         style={{ y }}
       >
         {`#00${index}`}
@@ -126,8 +126,8 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
       {/* Chevrons */}
       {
         index === 0 || index === WORK_LISTINGS.length - 1 ? (
-          <div className='absolute right-0 bottom-8 animate-bounce opacity-40'>
-            {index === 0 ? <ChevronsDown /> : <ChevronsUp />}
+          <div className='absolute bottom-2.5 right-2.5 animate-bounce opacity-40'>
+            {index === 0 ? <Icon name='chevrons-down' /> : <Icon name='chevrons-up' />}
           </div>
         ) : <></>
       }
@@ -145,7 +145,7 @@ const WorkListingItemDescription = ({ workItem }: { workItem: WorkItem }) => {
       </h2>
       <div className='mb-2 sm:mb-0 flex flex-row items-center'>
         <Icon name={workItem.icon_name} className='w-4 h-4 mr-2 sm:w-6 sm:h-6 sm:mr-4' />
-        <h4 className='text-lg sm:text-xl xl:text-2xl font-heading tracking-wider uppercase font-semibold'>
+        <h4 className='text-sm 3x-sm:text-lg sm:text-xl xl:text-2xl font-heading tracking-wider uppercase font-semibold'>
           {workItem.subheading}
         </h4>
       </div>
