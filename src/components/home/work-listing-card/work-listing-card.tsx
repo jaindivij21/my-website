@@ -59,7 +59,7 @@ export const WorksGalleryCard = () => {
           ))}
         </CardContent>
       </Card>
-      <motion.div className="max-w-[90%] mx-auto my-0 absolute bottom-2 sm:bottom-16 left-0 right-0 h-2" style={{
+      <motion.div className="max-w-[90%] mx-auto my-0 absolute bottom-2 sm:bottom-4 left-0 right-0 h-2" style={{
         scaleX,
         background: 'radial-gradient(circle, rgba(248,248,18,0.5) 35%, rgba(9,9,11,0.60) 75%)'
       }} />
@@ -85,7 +85,7 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
 
   return (
     <section className='h-[32rem] p-6 snap-center relative'>
-      <div className='h-full flex flex-row justify-evenly items-center'>
+      <div className='h-full flex flex-row justify-evenly items-center gap-x-9'>
         {!isMobile && (
           <div className='basis-1/2 h-full flex flex-col justify-center gap-y-2.5'>
             <WorkListingItemDescription workItem={workItem} />
