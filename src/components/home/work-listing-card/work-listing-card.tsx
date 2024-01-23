@@ -109,7 +109,7 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
               <div className='w-full absolute bottom-6 z-10 px-6'>
                 <WorkListingItemDescription workItem={workItem} />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black from-10% to-transparent w-full"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black from-10% to-transparent w-full rounded-lg"></div>
             </>
           )}
         </div>

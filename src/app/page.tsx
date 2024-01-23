@@ -17,7 +17,7 @@ export default async function HomePage() {
       <div className="max-w-7xl mx-auto px-4 overflow-hidden">
 
         {/* Content */}
-        <div className="flex flex-col space-y-20 pt-20 2x-sm:pt-36 sm:pt-24 lg:pt-52">
+        <div className="flex flex-col space-y-16 pt-20 2x-sm:pt-36 sm:pt-24 lg:pt-52">
 
           {/* SECTION: Header, Globe and Ticker */}
           <section id="hero" className="flex flex-col">
@@ -26,14 +26,13 @@ export default async function HomePage() {
             <div id="title" className="cursor-none">
               <div className="flex flex-col items-center hover:scale-125 transition-transform duration-500">
                 <div className="relative">
-                  <h2 className="absolute font-handwriting1 font-thin text-brand-primaryAccent text-3xl md:text-4xl lg:text-6xl tracking-[.20em] opacity-50 blur-[3px]">
-                    In Pursuit Of
-                  </h2>
-                  <h2 className="font-handwriting1 font-thin text-brand-primary text-3xl md:text-4xl lg:text-6xl tracking-[.20em] opacity-90 transform translate-x-0.5">
+                  <h2
+                    className="font-handwriting1 font-thin text-brand-primary text-3xl x-sm:text-4xl lg:text-6xl tracking-[.20em] opacity-90 transform translate-x-0.5 drop-shadow-[0_0_10px_rgba(248,248,18)]"
+                  >
                     In Pursuit Of
                   </h2>
                 </div>
-                <h1 className="-mt-4 font-heading font-thin text-brand-foreground text-3xl md:text-4xl lg:text-8xl transform xsm:text-5xl lg:-mt-8">
+                <h1 className="-mt-4 font-heading font-thin text-brand-foreground text-3xl x-sm:text-4xl lg:text-8xl transform xsm:text-5xl lg:-mt-8 drop-shadow-[2px_4px_10px_rgba(255,255,255,0.6)]">
                   Living The Adventure
                 </h1>
               </div>
@@ -57,7 +56,7 @@ export default async function HomePage() {
           </section>
 
           {/* SECTION: Cards */}
-          <section id="cards" className="flex flex-col gap-y-24">
+          <section id="cards" className="flex flex-col gap-y-16">
             <div id="featured-highlights-card">
             </div>
             <div id="work-listing-card">

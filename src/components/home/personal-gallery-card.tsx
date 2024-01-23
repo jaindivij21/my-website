@@ -8,7 +8,7 @@ import InfiniteGallery from "./infinite-gallery/infinite-gallery"
 export const PersonalGalleryCard = () => {
   return (
     <Card
-      className="drop-shadow-2xl h-72 lg:h-[42rem] overflow-hidden"
+      className="drop-shadow-2xl h-[28rem] 2x-sm:h-[42rem] overflow-hidden"
     >
       <CardHeader
         className="z-10 absolute flex justify-center text-center left-1/2 transform -translate-x-1/2 h-full w-full font-handwriting1 text-4xl 2x-sm:text-5xl md:text-6xl lg:text-8xl text-brand-text font-bold"
