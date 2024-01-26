@@ -2,10 +2,11 @@
 import HomeBackground from "@/components/home/home-background";
 import Globe from "@/components/home/globe";
 import TextTicker from "@/components/home/text-ticker";
-import AuxillaryInfo from "@/components/home/auxillary-info";
-import PersonalGalleryCard from "@/components/home/personal-gallery-card";
 import Newsletter from "@/components/home/newsletter/newsletter";
 import WorksGalleryCard from "@/components/home/work-listing-card/work-listing-card";
+import FeaturedHighlightsCard from "@/components/home/featured-highlights-card/featured-highlights-card";
+import PersonalGalleryCard from "@/components/home/personal-gallery-card/personal-gallery-card";
+import AuxillaryInfoCard from "@/components/home/auxillary-info-card/auxillary-info-card";
 
 export default async function HomePage() {
   return (
@@ -50,18 +51,24 @@ export default async function HomePage() {
 
           </section>
 
-          {/* SECTION: Auxillary Information Section */}
-          <section id="auxillary-info">
-            <AuxillaryInfo />
-          </section>
-
           {/* SECTION: Cards */}
           <section id="cards" className="flex flex-col gap-y-16">
-            <div id="featured-highlights-card">
+            {/* SUBSECTION: Auxillary Information Section */}
+            <div id="auxillary-info">
+              <AuxillaryInfoCard />
             </div>
+
+            {/* SUBSECTION: Featured Highlights Section */}
+            <div id="featured-highlights-card">
+              <FeaturedHighlightsCard />
+            </div>
+
+            {/* SUBSECTION: Work Gallery Card */}
             <div id="work-listing-card">
               <WorksGalleryCard />
             </div>
+
+            {/* SUBSECTION: Personal Gallery Card */}
             <div id="about-me-card">
               <PersonalGalleryCard />
             </div>

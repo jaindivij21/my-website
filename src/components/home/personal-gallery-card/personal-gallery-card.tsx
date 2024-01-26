@@ -1,7 +1,7 @@
 // Component Imports
-import { Card, CardContent, CardHeader } from "../shared/ui/building-blocks/card"
-import TypewriterText from "../shared/ui/generic/typewriter-text/typewriter-text"
-import InfiniteGallery from "./infinite-gallery/infinite-gallery"
+import { Card, CardContent, CardHeader } from "../../shared/ui/building-blocks/card"
+import TypewriterText from "../../shared/ui/generic/typewriter-text/typewriter-text"
+import InfiniteGallery from "./infinite-gallery"
 
 // Component: Personal Gallery Card
 // Description: This component is an displays my photos and a small description of my life.
