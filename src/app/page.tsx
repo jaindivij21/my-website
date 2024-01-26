@@ -53,11 +53,6 @@ export default async function HomePage() {
 
           {/* SECTION: Cards */}
           <section id="cards" className="flex flex-col gap-y-16">
-            {/* SUBSECTION: Auxillary Information Section */}
-            <div id="auxillary-info">
-              <AuxillaryInfoCard />
-            </div>
-
             {/* SUBSECTION: Featured Highlights Section */}
             <div id="featured-highlights-card">
               <FeaturedHighlightsCard />
@@ -71,6 +66,11 @@ export default async function HomePage() {
             {/* SUBSECTION: Personal Gallery Card */}
             <div id="about-me-card">
               <PersonalGalleryCard />
+            </div>
+
+            {/* SUBSECTION: Auxillary Information Section */}
+            <div id="auxillary-info">
+              <AuxillaryInfoCard />
             </div>
           </section>
 
