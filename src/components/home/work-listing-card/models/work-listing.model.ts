@@ -5,4 +5,5 @@ export interface WorkItem {
   heading: string;
   subheading: string;
   description: string;
+  link: string;
 }

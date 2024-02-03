@@ -32,6 +32,8 @@
     "classnames": "^2.3.2",
     "clsx": "^2.0.0",
     "cobe": "^0.6.3",
+    "embla-carousel-autoplay": "^8.0.0-rc21",
+    "embla-carousel-react": "^8.0.0-rc21",
     "eslint": "8.56.0",
     "eslint-config-next": "14.0.4",
     "framer-motion": "^10.16.16",

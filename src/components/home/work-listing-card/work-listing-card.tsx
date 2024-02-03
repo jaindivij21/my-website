@@ -3,6 +3,7 @@
 // Essential Imports
 import { RefObject, useRef } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 // Component Imports
 import { AspectRatio } from "@/components/shared/ui/building-blocks/aspect-ratio"
@@ -25,9 +26,9 @@ function useParallax(value: MotionValue<number>, distance: number) {
   return useTransform(value, [0, 1], [-distance, distance]);
 }
 
-// Component: Work Gallery Card
+// Component: Work Listing Card
 // Description: This component lists down all the works that I do.
-export const WorksGalleryCard = () => {
+export const WorksListingCard = () => {
   // Scroll Hook for the Progress Bar
   const cardRef = useRef(null);
   const cardScrollProgress = useScroll({
@@ -73,6 +74,7 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
   index: number
 }) => {
   const { isMobile } = useWindowSize();
+  const router = useRouter();
 
   // Parallax Hook for the Image Scroll
   const imageRef = useRef(null);
@@ -93,7 +95,20 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
         )}
 
         {/* Image */}
-        <div ref={imageRef} className='w-[300px] h-[400px] relative'>
+        <motion.div
+          ref={imageRef}
+          className='w-[300px] h-[400px] relative cursor-pointer'
+          whileHover={{
+            scale: 1.03,
+            skewY: 2,
+            borderRadius: '8px',
+            boxShadow: '0px 0px 30px 0px rgba(255,255,255,0.3)',
+            transition: {
+              duration: 0.5
+            }
+          }}
+          onClick={() => router.push(workItem.link)}
+        >
           <AspectRatio ratio={3 / 4}>
             <Image
               src={workItem.image_url}
@@ -112,7 +127,7 @@ const WorkListingItem = ({ cardRef, workItem, index }: {
               <div className="absolute inset-0 bg-gradient-to-t m:from-black  from-black from-30% 3x-sm:from-10% to-transparent w-full rounded-lg"></div>
             </>
           )}
-        </div>
+        </motion.div>
       </div>
 
       {/* Indexes */}
@@ -154,4 +169,4 @@ const WorkListingItemDescription = ({ workItem }: { workItem: WorkItem }) => {
   )
 }
 
-export default WorksGalleryCard
+export default WorksListingCard

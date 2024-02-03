@@ -10,6 +10,7 @@ export const WORK_LISTINGS: WorkItem[] = [
     subheading: "Lifestyle Blog",
     description:
       "Weaving timeless stories that echo the beauty of exploration. Join me on a journey of discovery, where each post paints a vivid picture of life's adventures.",
+    link: "/blog/lifestyle-travel",
   },
   {
     image_url:
@@ -20,6 +21,7 @@ export const WORK_LISTINGS: WorkItem[] = [
     subheading: "Technology Blog",
     description:
       "Where language of algorithms meets the choreography of code. From the waltz of data structures to the pirouettes of programming challenges, this is my digital dance floor.",
+    link: "/blog/technology",
   },
   {
     image_url:
@@ -30,6 +32,7 @@ export const WORK_LISTINGS: WorkItem[] = [
     subheading: "Storytelling",
     description:
       "From snapshots to cinematic journeys, each piece is a visual narrative that transcends the limits of words. Craft stories that resonate, each frame a portal to emotions, moments, and tales waiting to unfold.",
+    link: "/content",
   },
   {
     image_url:
@@ -40,6 +43,7 @@ export const WORK_LISTINGS: WorkItem[] = [
     subheading: "Podcast",
     description:
       "Join me in unraveling unheard stories, diverse perspectives, and captivating narratives that often remain eclipsed. From intimate interviews to explorations of untold topics, this podcast is a sanctuary for the curious minds.",
+    link: "/content#podcast",
   },
   {
     image_url:
@@ -50,5 +54,6 @@ export const WORK_LISTINGS: WorkItem[] = [
     subheading: "Prints Shop",
     description:
       "Each print here is a condensed chapter blending my narrative, a place's essence, and the dreams held in each frame. Elevate your space with these prints.",
+    link: "/shop",
   },
 ];
