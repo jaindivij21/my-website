@@ -7,6 +7,7 @@ import WorksListingCard from "@/components/home/work-listing-card/work-listing-c
 import FeaturedHighlightsCard from "@/components/home/featured-highlights-card/featured-highlights-card";
 import PersonalGalleryCard from "@/components/home/personal-gallery-card/personal-gallery-card";
 import AuxillaryInfoCard from "@/components/home/auxillary-info-card/auxillary-info-card";
+import FeaturedHighlightsCardContent from "@/components/home/featured-highlights-card/featured-highlights-card-content";
 
 export default async function HomePage() {
   return (
@@ -54,7 +55,9 @@ export default async function HomePage() {
 
             {/* SUBSECTION: Featured Highlights Section */}
             <div id="featured-highlights-card">
-              <FeaturedHighlightsCard />
+              <FeaturedHighlightsCard>
+                <FeaturedHighlightsCardContent />
+              </FeaturedHighlightsCard>
             </div>
 
             {/* SUBSECTION: Work Gallery Card */}

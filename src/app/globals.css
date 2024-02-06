@@ -85,7 +85,42 @@
     @apply border-border;
     @apply scroll-smooth;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(240 5% 64.9%) hsl(240 3.7% 15.9%);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: hsl(hsl(240 5% 64.9%));
+    border-radius: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: hsl(240 3.7% 15.9%);
+    border-radius: 14px;
+    border: 3px solid hsl(hsl(240 5% 64.9%));
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }

@@ -44,7 +44,7 @@ export const WorksListingCard = () => {
     <div className='relative'>
       <Card
         ref={cardRef}
-        className="drop-shadow-2xl h-[32rem] overflow-scroll snap-y snap-mandatory relative"
+        className="drop-shadow-2xl h-[32rem] overflow-scroll snap-y snap-mandatory no-scrollbar relative"
         style={{
           backgroundImage: `radial-gradient(ellipse, rgba(248,248,18,0.1) 20%, hsl(var(--background)) 75%), url(${backgroundGrid.src})`,
         }}
