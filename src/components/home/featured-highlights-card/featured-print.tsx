@@ -49,7 +49,7 @@ const FeaturedPrint = () => {
               alt={print.name}
               fill
               sizes="(max-width: 640px) 100vw, 33vw"
-              className='object-cover rounded-lg'
+              className='object-cover rounded-3xl'
             />
           </Link>
         </motion.div>
