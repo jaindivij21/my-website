@@ -110,7 +110,7 @@ const FeaturedBlogContent = ({ featuredBlog }: { featuredBlog: FeaturedBlogModel
         </CardContent>
         <CardFooter className='p-2 sm:p-4 grow bg-white bg-opacity-10 rounded-b-2xl'>
           <div className='flex flex-col space-y-1 sm:space-y-2'>
-            <div className='flex flex-col space-y-1.5 sm:flex-row sm:justify-between'>
+            <div className='flex flex-col space-y-1.5 sm:flex-row sm:justify-between sm:items-center'>
               <h4 className='text-sm sm:text-base font-heading font-medium tracking-wide'>{featuredBlog.blog_post.title}</h4>
               <div className='flex flex-row space-x-4'>
                 <h6 className='text-xs sm:text-sm px-2.5 py-0.5 rounded-lg bg-black bg-opacity-20'>{_formatDate(featuredBlog.blog_post.published_at)}</h6>
