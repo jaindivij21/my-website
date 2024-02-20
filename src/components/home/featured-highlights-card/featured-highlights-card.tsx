@@ -27,12 +27,12 @@ export const FeaturedHighlightsCard = ({
   return (
     <Card
       ref={cardRef}
-      className="drop-shadow-2xl h-[48rem]"
+      className="drop-shadow-2xl h-[24rem] sm:h-[48rem]"
       style={{
         backgroundImage: `radial-gradient(ellipse, rgba(248,248,18,0.1) 20%, hsl(var(--background)) 75%), url(${backgroundGrid.src})`,
       }}
     >
-      <CardContent className="py-10 px-0 h-full flex justify-center items-center">
+      <CardContent className="p-0 h-full sm:py-10 sm:flex sm:justify-center sm:items-center">
         <Carousel
           plugins={[plugin.current]}
           opts={{
@@ -41,13 +41,13 @@ export const FeaturedHighlightsCard = ({
             containScroll: false,
             loop: true
           }}
-          className="w-full max-w-[90%]"
+          className="h-full w-full max-w-full sm:max-w-[90%]"
           onMouseEnter={plugin.current.stop}
           onMouseLeave={plugin.current.reset}
         >
           {children}
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="left-2.5 sm:-left-12" />
+          <CarouselNext className="right-2.5 sm:-right-12" />
         </Carousel>
       </CardContent>
     </Card>

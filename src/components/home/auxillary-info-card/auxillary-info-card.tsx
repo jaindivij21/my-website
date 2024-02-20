@@ -72,7 +72,7 @@ export const AuxillaryInfoCard = () => {
 
             {/* SECTION: Card */}
             <Card
-              className="h-16 x-sm:h-24 lg:h-48 border-0 relative"
+              className="h-20 x-sm:h-24 lg:h-48 border-0 relative"
             >
               {/* SUBSECTION: Background - World Map */}
               <Image
