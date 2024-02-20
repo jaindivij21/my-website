@@ -3,8 +3,7 @@
 Welcome to my personal portfolio website! This repository showcases my projects, reflecting my passion for software development, travel ✈️, and adventure 🌍.
 
 ## Website (In development) Preview 🕸️
-
-https://github.com/jaindivij21/my-website/assets/39730249/9393599b-9354-4e04-a483-f106fd771a0a
+https://github.com/jaindivij21/my-website/assets/39730249/ed72bc4c-dffd-4d35-a7a9-669ce8f89e88
 
 ## About Me 🙋‍♂️
 
