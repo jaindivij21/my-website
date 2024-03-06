@@ -18,13 +18,11 @@ import { contentAnimationVariants, footerAnimationVariants } from "./constants/f
 import { formatDate } from '@/lib/utils';
 
 const FeaturedBlog = () => {
-  // Variables
-  const { isDesktop } = useWindowSize();
-
   // State
   const [isHovering, setIsHovering] = useState(false)
 
   // Variables
+  const { isDesktop } = useWindowSize();
   const contentAnimationProps = isDesktop
     ? {
       initial: contentAnimationVariants.initial,

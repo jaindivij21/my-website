@@ -66,6 +66,7 @@ export const Newsletter = () => {
                       <FormControl>
                         <Input className={`w-60 3x-sm:w-80 ${fieldState.error ? 'border-destructive' : ''}`}
                           placeholder="Email"
+                          autoComplete="email"
                           {...field}
                         />
                       </FormControl>
