@@ -15,7 +15,7 @@ export const IMAGE_URLS: InfiniteGalleryImageGroup[] = [
       width: 2106,
     },
     {
-      url: "https://lh3.googleusercontent.com/pw/ABLVV8465K1qSiQPzqW0YlhRI9-_n9vWfhnENRfFV2fle59QFVMWJqXycSy4ZyXrieO9Ew3CBT6HYba_qHN2VS01VdmQfu6wZLb3-lk8dJNhJ3Hrf5ahUNPpP-0zL7gAI_w6NpcsYKuiebOrDSsBayPsKBlnaQ=w3112-h1750-s-no-gm",
+      url: "https://lh3.googleusercontent.com/pw/AP1GczPvNe63QzqR-HrzZGE1eW139AFV2g2A2TOlzj7u-FTdMztVlXVuQ6o3BXT-dW1mx9nCV6O2q7wq4LiPmbDHUhPKFzAKungfm9GN292IGiaF1rrXefJ829CsiyVXGAvPH1bun0i4tB5w0SDIVJ6dWxuXLw=w3124-h1758-s-no-gm",
       height: 3112,
       width: 1750,
     },
