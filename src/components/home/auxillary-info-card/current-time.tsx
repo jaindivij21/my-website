@@ -19,11 +19,11 @@ const CurrentTime = (
   }, []);
 
   return (
-    <div
+    <time
       className={cn("tabular-nums", className)}
     >
       {currentTime.toLocaleTimeString("en-US")}
-    </div>
+    </time>
   );
 };
 

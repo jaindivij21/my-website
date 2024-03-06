@@ -15,7 +15,7 @@ import { Logo } from "../shared/icons"
 export const Footer = () => {
   const currentYear = new Date().getFullYear()
   return (
-    <footer className="mt-10">
+    <footer className="mt-20">
       {/* Container */}
       <div className="max-w-7xl mx-auto">
         {/* Footer Content */}
