@@ -10,7 +10,7 @@ export const BlogIntro = ({ title, description, clipPath, ifUseClipPath = false 
   const mask = 'url(https://lh3.googleusercontent.com/pw/AP1GczNDbpv4kk_5xzRevG-L6MKIgYvNRJKfQ6BfDL4GqWOItlpGpOxRbaYEj1oYIeZz9bbE2VUGZLLTd4Q5jX9nbaagchsGCyC9l3mB4HOEwYBV1vcxQFP2zltAEOqWCGj-6odVpAfFA6twSln-NQqEoNX7Iw=w1024-h768-s-no-gm)';
 
   return (
-    <Card className="h-2/5 overflow-hidden">
+    <Card className="h-2/5 overflow-hidden rounded-xl border-0">
       <CardContent className="p-0">
         {ifUseClipPath ? (
           <div className="relative isolate overflow-hidden bg-background p-5 sm:p-10">
