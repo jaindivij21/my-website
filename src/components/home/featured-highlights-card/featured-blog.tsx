@@ -50,7 +50,7 @@ const FeaturedBlog = () => {
       published_by: 'Divij Jain',
       read_time: '5 min',
       title: 'Why Travel Gets Me High',
-      description: 'I have always been a fan of traveling. It is the one thing that I have always been passionate about. I have always been a fan of traveling. It is the one thing that I have always been passionate about. I have always been a fan of traveling. It is the one thing that I have always been passionate about. I have always been a fan of traveling. It is the one thing that I have always been passionate about. I have always been a fan of traveling. It is the one thing that I have always been passionate about. I have always been a fan of traveling. It is the one thing that I have always been passionate about. I have always been a fan of traveling. It is the one thing that I have always been passionate about. I have always been a fan of traveling. It is the one thing that I have always been passionate about.'
+      abstract: 'I have always been a fan of traveling. It is the one thing that I have always been passionate about. I have always been a fan of traveling. It is the one thing that I have always been passionate about. I have always been a fan of traveling. It is the one thing that I have always been passionate about. I have always been a fan of traveling. It is the one thing that I have always been passionate about. I have always been a fan of traveling. It is the one thing that I have always been passionate about. I have always been a fan of traveling. It is the one thing that I have always been passionate about. I have always been a fan of traveling. It is the one thing that I have always been passionate about. I have always been a fan of traveling. It is the one thing that I have always been passionate about.'
     }
   }
 
@@ -116,7 +116,7 @@ const FeaturedBlogContent = ({ featuredBlog }: { featuredBlog: FeaturedBlogModel
                 <h6 className='text-xs sm:text-sm px-2.5 py-0.5 rounded-lg bg-black bg-opacity-20'>{featuredBlog.blog_post.read_time}</h6>
               </div>
             </div>
-            <p className='  line-clamp-2 text-sm text-muted-foreground'>{featuredBlog.blog_post.description}</p>
+            <p className='  line-clamp-2 text-sm text-muted-foreground'>{featuredBlog.blog_post.abstract}</p>
           </div>
         </CardFooter>
       </Card>

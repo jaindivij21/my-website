@@ -2,8 +2,8 @@
 import Image from 'next/image'
 
 // Styles and Assets
-import mobileBackground from '../../../public/images/main-background-mobile.png'
-import desktopBackground from '../../../public/images/main-background.png'
+import mobileBackground from '../../../../public/images/main-background-mobile.png'
+import desktopBackground from '../../../../public/images/main-background.png'
 
 // Utility Imports
 import { cn } from '@/lib/utils'

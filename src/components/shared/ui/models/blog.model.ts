@@ -5,5 +5,6 @@ export interface BlogModel {
   published_by: string;
   read_time: string;
   title: string;
-  description: string;
+  abstract: string;
+  content?: string;
 }
