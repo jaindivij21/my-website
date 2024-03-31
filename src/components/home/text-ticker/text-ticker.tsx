@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useMotionValue } from "framer-motion";
 
 // Component Imports
-import InfiniteBanner from "../shared/ui/building-blocks/infinite-banner";
+import InfiniteBanner from "../../shared/ui/building-blocks/infinite-banner";
 
 // Component: TextTicker
 // Description: A component that displays a ticker of any element.

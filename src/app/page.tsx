@@ -1,13 +1,13 @@
 // Component Imports
-import HomeBackground from "@/components/home/home-background";
-import Globe from "@/components/home/globe";
-import TextTicker from "@/components/home/text-ticker";
+import HomeBackground from "@/components/home/home-background/home-background";
+import TextTicker from "@/components/home/text-ticker/text-ticker";
 import Newsletter from "@/components/home/newsletter/newsletter";
 import WorksListingCard from "@/components/home/work-listing-card/work-listing-card";
 import FeaturedHighlightsCard from "@/components/home/featured-highlights-card/featured-highlights-card";
 import PersonalGalleryCard from "@/components/home/personal-gallery-card/personal-gallery-card";
 import AuxillaryInfoCard from "@/components/home/auxillary-info-card/auxillary-info-card";
 import FeaturedHighlightsCardContent from "@/components/home/featured-highlights-card/featured-highlights-card-content";
+import Globe from "@/components/home/globe/globe";
 
 export default async function HomePage() {
   return (

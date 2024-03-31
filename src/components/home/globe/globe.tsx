@@ -5,8 +5,8 @@ import { useEffect, useRef } from "react";
 
 // Component Imports
 import createGlobe from "cobe";
-import { AspectRatio } from "../shared/ui/building-blocks/aspect-ratio";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { AspectRatio } from "@radix-ui/react-aspect-ratio";
 
 const Globe = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
