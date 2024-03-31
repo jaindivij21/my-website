@@ -1,11 +1,9 @@
 // Component Imports
-import { Card } from "@/components/shared/ui/building-blocks/card";
-import Image from 'next/image'
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/shared/ui/building-blocks/pagination";
+import { BlogListCard } from "./blog-list-card/blog-list-card";
 
 // Utils Imports
 import { BlogModel } from "@/components/shared/ui/models/blog.model";
-import { formatDate } from "@/lib/utils";
 
 // Component: BlogList
 // Description: This component is used to display the list of blog posts.
@@ -71,41 +69,17 @@ export const BlogList = () => {
     }
   ]
 
-  // Functions
-  function _formatDate(date: string) {
-    return formatDate(date, {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric',
-    });
-  }
 
   return (
     <div className="flex flex-col mt-10 gap-10">
       {/* SECTION: Blog Grid */}
       <article className="grid gap-y-8 grid-cols-1 x-sm:gap-8 x-sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {blogPosts.map((blogPost, index) => (
-          <Card
+          <BlogListCard
             key={index}
-            className={`relative overflow-hidden h-[400px] cursor-pointer ${index === 0 && 'x-sm:col-span-2'}`}
-          >
-            <Image
-              src={blogPost.image_src}
-              alt={blogPost.image_alt}
-              fill
-              sizes="(max-width: 576px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className='object-cover'
-            />
-            <div className="absolute bottom-0 w-full">
-              <div className='flex flex-col p-6 space-y-2'>
-                <h4 className='text-lg sm:text-base font-heading font-medium tracking-wide'>{blogPost.title}</h4>
-                <div className='flex flex-row space-x-4'>
-                  <h6 className='text-sm px-2.5 py-0.5 rounded-lg bg-black bg-opacity-20'>{_formatDate(blogPost.published_at)}</h6>
-                  <h6 className='text-sm px-2.5 py-0.5 rounded-lg bg-black bg-opacity-20'>{blogPost.read_time}</h6>
-                </div>
-              </div>
-            </div>
-          </Card>
+            index={index}
+            blogPost={blogPost}
+          />
         ))}
       </article>
 

@@ -3,7 +3,7 @@ import BlogIntro from "@/components/blog/blog-intro/blog-intro";
 import BlogList from "@/components/blog/blog-list/blog-list";
 
 // Utils Imports
-import { BlogIntroPropsModel } from "@/components/blog/blog-intro/models/blog-intro";
+import { BlogIntroPropsModel } from "@/components/blog/models/blog.model";
 
 export default async function LifestyleTravelBlogPage() {
   // Constants
@@ -26,6 +26,7 @@ export default async function LifestyleTravelBlogPage() {
               <BlogIntro
                 title={introData.title}
                 description={introData.description}
+                ifUseClipPath={true}
                 clipPath={introData.clipPath}
               />
             </section>
