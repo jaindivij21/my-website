@@ -10,7 +10,6 @@ export default async function LifestyleTravelBlogPage() {
   const introData: BlogIntroPropsModel = {
     title: "Vagabond Vignettes",
     description: "Weaving timeless stories that echo the beauty of exploration. Join me on a journey of discovery, where each post paints a vivid picture of life's adventures.",
-    clipPath: 'polygon(17.58% 42.15%, 27.79% 47.84%, 44.99% 43.52%, 29.45% 18.78%, 40.18% 20.24%, 55.76% 43.52%, 76.24% 39.03%, 86.7% 43.52%, 94.36% 51.57%, 86.83% 59.74%, 76.24% 62.78%, 55.17% 59.74%, 40.18% 80.42%, 29.45% 83.87%, 44.24% 57.66%, 27.79% 54.53%, 17.58% 60.5%, 20.19% 51.33%)'
   }
 
   return (
@@ -26,8 +25,6 @@ export default async function LifestyleTravelBlogPage() {
               <BlogIntro
                 title={introData.title}
                 description={introData.description}
-                ifUseClipPath={true}
-                clipPath={introData.clipPath}
               />
             </section>
 

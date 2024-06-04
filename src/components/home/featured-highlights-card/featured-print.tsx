@@ -21,8 +21,8 @@ const FeaturedPrint = () => {
   const [isHovering, setIsHovering] = useState(false)
 
   // Variables
-  const { isDesktop } = useWindowSize();
-  const contentAnimationProps = isDesktop
+  const { isMobile } = useWindowSize();
+  const contentAnimationProps = !isMobile
     ? {
       initial: contentAnimationVariants.initial,
       animate: isHovering ? "hover" : "",
@@ -30,7 +30,7 @@ const FeaturedPrint = () => {
       variants: contentAnimationVariants,
     } : {};
 
-  const footerAnimationProps = isDesktop
+  const footerAnimationProps = !isMobile
     ? {
       initial: footerAnimationVariants.initial,
       animate: isHovering ? "hover" : "",
@@ -51,8 +51,8 @@ const FeaturedPrint = () => {
   return (
     <div
       className='h-full w-full flex flex-col justify-between'
-      onMouseEnter={isDesktop ? () => setIsHovering(true) : undefined}
-      onMouseLeave={isDesktop ? () => setIsHovering(false) : undefined}
+      onMouseEnter={!isMobile ? () => setIsHovering(true) : undefined}
+      onMouseLeave={!isMobile ? () => setIsHovering(false) : undefined}
     >
       <CardHeader className='bg-gradient-to-b from-black from-10% to-transparent p-3 sm:p-6'>
         <CardTitle className='text-lg sm:text-2xl font-heading font-semibold tracking-wide'>Featured Print</CardTitle>

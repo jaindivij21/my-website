@@ -2,21 +2,18 @@ import { ResumeHeaderData } from "../models/resume-header.model";
 
 export const resumeHeaderData: ResumeHeaderData = {
   image: {
-    src: "https://lh3.googleusercontent.com/pw/AP1GczMOX-mVtTVId1EPITaGVxaVy-jmboQWGHJVbVMvAo8NG6Ia0sXzjh0HGMLPSYZP-MJYRK_t-CnldMaLNkFNKCr58i07FCUocCphEq-2QcopwsbjhvAOVSqz2RN8xEERZJ5NCGRJcxAhuvIu24iIdVwwgXPTrjsNElRYhuWKbA1cwi6BU3F9RbCx2y6ALUQHCPfDXB0D94x66FpTia0jcQIchIBqqxyzhAJ2ZMFdH0NCRK2uOpxP8FvviJTxsD7-LkN6B8ELaO83Kq5XnJYE3i6zPw_0aUEB4QXQykTeSi3dPOG-K_kcSp2NepdGUlPWP58ks16q2CePiGQomVXe7zCasn05SPmYN98170K7uoKWXRquYBfxJMfWnQbiuU2nGQypBY3BbPdW5nHii7nmmiaAcpNYWIOenv_RVmOINdTJUMFjjKuq14L9BRGrFo-eSqWM8hZ98QFoeWOikw9B_5v80Qqtp76KqCzv1kNBHW0T3W-IKOSMD0S864CfIaDfnshSy7Ma1F3Q_LCZ_kCUxW3AC9Kk_GDkGLA-fo2uulIOOqIfJYvXBHNvHBuPOOc93J-CjVRub5fmhIkh-j-NHy1fbzCiHEAmCCowhzwlFnQi8r_fjCYkjLpZ34DmqtUIT0cU93uKXwY70bHA8tzo5SrcgIweENgZgNhYBj0Is-nbJ_fNyl_wTKsaJXd1Crl9Yrk9KkEPamiC1k8psiRhAeFKKzJ_eU4YMqp1FXQZCkiw1-WwYe0HojLQ-yyPP6FPndEmnBhoXxq4QKXFdSwoVurgyT2EGKWcn555HlJXf34Z8yRW7_ieGWjJSR3lUDMai5vDeVW4rkvNlGDV1j0jVCEqiiecSr1hVg5oXF_OY8dE2WzFxmG9hHtns0LcNibaQQTK3Ghyl86dEHt4ykzKqlE4D5OqI_ePfknkvU0ZDFnVFw0MmnLUr1bOHY8AQlPCI87LSKn03ZN4PeAK8aleJYapzTnGcILZxwvLmaToKCYj3GHUwXdcjxCZl7BZvLvEHz4=w769-h770-s-no-gm",
+    src: "https://lh3.googleusercontent.com/pw/AP1GczPnuQPsm-GFEZH2VB6yJBoQ_WoR3qgdTGX62L6OZHKWMYTN_mvZ3cMiIIeRV-GJYZwCLT21OmxTJIgPFxe7WLVmg8zsqNkaxHnHWQDU5MW44XNpUBHSQhg2kBM2jYCq04GCw1vTyAf2TYthdfpwnX7Ta7bwbw_FUjo7iNTwkChiAbDChKbpPXdqaN3b2q_rf5FdTXue3ytGmJrzRVANXDDer1sqksN3Fjt3ED6f7kAh5SEf5nwzJBLluImobc6FEZSMOiwajtACXmJ11FxgemYyqJ4xJt5T4tcOm60z6lpaI_W8gaoj5u9ItzqO9YRQFVSfR7qFywb9YsxslzzepeEn2HNeJU-kYyTH0XAhAl3yy4hPaJYN-V99k_ir7NKjQ76P52VXAd0BaqfdjsZVAPmwg_zJ54zB6Maowuv8ZzHjpCHC0w56rRbK1zbppLSbkRgt5mJ9YOsKMVN-VWJtgEix3Xn4As8UWawGOSuglis-yWVO5ZN6-Q3OO7Iq6_6o8YSpN3TqIMhf_wfYDZ9e2xjge2j93hbYLViS5MhziZx9gVbC1_N4J_tbCecHUGTtSbU4ZY-7-hqj-u3sJv0Z8i_sBs67x-pU8b6RClgT-4zVHX0m3pHCJ2RSsAi_S4o7Sv1N9L3o9_QjodBS-69kQZ-ylAmk9Ky2SI1RCtXuoFMI4i-g_wa5-ngEbQ9Pnp4ctj0utdzWGtIhyPZ4c2xmT-1HujDFoLrRc_H1TOyi-0h5RCm-1QYRLPv6m_b1DDaA6E-3KknaEAQMrG3YVLWW_XeKJGaLIledyx3s5DjI2R0q8njn9AjK23pvhk4imLo7R-PQGvroVgPq8K4DWgFCenUl8z97ygtIoH1zZFw5ponSZbFQfVrn6wBXotiqsKxkgEW4_A0dj8mR2DGTI7mxZgx8SWBJvcrlbRP1XP9lVnJvY9Mx9l7qR7oCSzFPOSVp-97-OCt4fQMs66KHNrFKUVkfdbiMW1PkrpC8-lbKx416RUN5N4gd_51EtKqKEHulGg=w769-h770-no",
     alt: "Divij Jain Profile Picture",
   },
   tagline: "I create. digital alchemist/globetrotter/forever pursuing wisdom.",
   description: [
     {
-      icon: "laptop",
       text: "Software Engineer",
     },
     {
-      icon: "map-pin",
       text: "New Delhi, India",
     },
     {
-      icon: "mail",
       text: "jaindivijwork@gmail.com",
     },
   ],

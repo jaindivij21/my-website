@@ -1,3 +1,5 @@
+"use client"
+
 // Essential Imports
 import Image from 'next/image'
 
@@ -7,8 +9,12 @@ import ResumeHeaderDescription from './resume-header-description/resume-header-d
 
 // Utils Imports
 import { resumeHeaderData } from './constants/resume-header.constant';
+import useWindowSize from '@/lib/hooks/use-window-size';
 
 const ResumeHeader = () => {
+  const { isMobile } = useWindowSize();
+  console.log("Component is being rendered");
+
   return (
     <>
       {/* Wrapper */}
@@ -19,28 +25,29 @@ const ResumeHeader = () => {
         }}
       >
         {/* Container */}
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-6 py-10 sm:px-4 sm:py-0">
           {/* Content */}
-          <div className="h-full flex flex-row gap-x-6 items-end">
+          <div className="h-full flex flex-col gap-6 items-center sm:flex-row sm:items-end">
             {/* SECTION: Resume Image */}
             <Image
               src={resumeHeaderData.image.src}
               alt={resumeHeaderData.image.alt}
-              width={150}
-              height={150}
-              className='object-cover rounded-full relative top-9'
+              width={isMobile ? 88 : 150}
+              height={isMobile ? 88 : 150}
+              priority={true}
+              className='object-cover rounded-full sm:relative sm:top-9'
             />
 
             {/* SECTION: Personal Details */}
-            <div className='flex flex-col gap-y-3 mb-4'>
+            <div className='mb-0 flex flex-col gap-y-6 items-center sm:items-start sm:mb-4 sm:gap-y-3'>
               {/* SUBSECTION: Name and Tagline */}
-              <div className='flex flex-col gap-y-1'>
+              <div className='flex flex-col items-center sm:items-start gap-y-2 sm:gap-y-1'>
                 <div className='flex flex-row items-center gap-x-3'>
                   <h1 className="font-heading text-4xl font-bold">Divij Jain</h1>
                   <Badge className='text-gray-300' variant="secondary">He/Him</Badge>
                 </div>
 
-                <p className='text-sm font-light tracking-wide text-gray-200'>
+                <p className='text-sm font-light tracking-wide text-gray-200 text-center'>
                   {resumeHeaderData.tagline}
                 </p>
               </div>

@@ -10,6 +10,5 @@ export interface ResumeHeaderData {
 }
 
 interface ResumeHeaderDescriptionItem {
-  icon: keyof typeof dynamicIconImports;
   text: string;
 }

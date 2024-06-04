@@ -1,38 +1,40 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function useWindowSize() {
-  const [windowSize, setWindowSize] = useState<{
-    width: number | undefined;
-    height: number | undefined;
-  }>({
-    width: undefined,
-    height: undefined,
+const MOBILE_BREAKPOINT = 640;
+
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
   });
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Handler to call on window resize
+    // Function to update window size
     function handleResize() {
-      // Set window width/height to state
+      const { innerWidth } = window;
       setWindowSize({
-        width: window.innerWidth,
+        width: innerWidth,
         height: window.innerHeight,
       });
+
+      // Check if window width is less than the mobile breakpoint
+      setIsMobile(innerWidth < MOBILE_BREAKPOINT);
     }
 
-    // Add event listener
+    // Add event listener to window resize
     window.addEventListener("resize", handleResize);
 
-    // Call handler right away so state gets updated with initial window size
+    // Initial check on mount
     handleResize();
 
-    // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty array ensures that effect is only run on mount
+    // Remove event listener on component cleanup
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Empty array ensures that effect runs only on mount and unmount
 
-  return {
-    windowSize,
-    isMobile: typeof windowSize?.width === "number" && windowSize?.width < 640,
-    isDesktop:
-      typeof windowSize?.width === "number" && windowSize?.width >= 640,
-  };
+  return { ...windowSize, isMobile };
 }
+
+export default useWindowSize;
