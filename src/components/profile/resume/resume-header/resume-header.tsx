@@ -13,7 +13,6 @@ import useWindowSize from '@/lib/hooks/use-window-size';
 
 const ResumeHeader = () => {
   const { isMobile } = useWindowSize();
-  console.log("Component is being rendered");
 
   return (
     <>

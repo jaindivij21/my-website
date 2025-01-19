@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 // Component Imports
 import { Card } from "@/components/shared/ui/building-blocks/card";

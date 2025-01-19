@@ -1,0 +1,2 @@
+export const ABOUT_ME =
+  "I’m a highly driven and inquisitive software engineer with excellent problem-solving skills. Known for my relentless drive and exceptional problem-solving abilities, I’m on a perpetual quest for knowledge and growth, embracing every opportunity to learn and evolve in the ever-evolving world of technology. My passion for technology fuels my quest to deliver innovative engineering solutions, pushing the boundaries of what’s possible.";
