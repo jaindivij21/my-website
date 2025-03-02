@@ -1,7 +1,5 @@
 import { InfiniteGalleryImageGroup } from "../models/infinite-gallery.model";
 
-export const GRAIN_URL: String =
-  "https://lh3.googleusercontent.com/pw/ABLVV864vdRebQbjjnJDaw6ochKF3230v1vhUUU_e5Ag77DAHsBE7jD0Fk9B5MIVEtCi6frVH_NJ2WpVEW0bUZ0OyFb-K-WD0oaMgWOYxZG7_el7ZW7xX4d83DC9biJY6_5JPJzWoUH0jInjrkaEFzIKPstHWw=w400-h400-s-no-gm";
 export const IMAGE_URLS: InfiniteGalleryImageGroup[] = [
   [
     {

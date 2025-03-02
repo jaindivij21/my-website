@@ -135,14 +135,10 @@ module.exports = {
           to: { height: 0 },
         },
         "personal-gallery-grain": {
-          "0%": { transform: "translate(20%, -15%)" },
-          "10%": { transform: "translate(-20%, -15%)" },
-          "20%, 100%": { transform: "translate(20%, -5%)" },
-          "30%": { transform: "translate(-20%, -5%)" },
-          "40%, 80%": { transform: "translate(20%, 5%)" },
-          "50%, 90%": { transform: "translate(-20%, 5%)" },
-          "60%": { transform: "translate(20%, 15%)" },
-          "70%": { transform: "translate(-20%, 15%)" },
+          "0%, 100%": { transform: "translate(0%, 0%)" },
+          "25%": { transform: "translate(-2%, -2%)" },
+          "50%": { transform: "translate(-2%, 2%)" },
+          "75%": { transform: "translate(2%, -2%)" },
         },
         "personal-gallery-images": {
           "0%": { transform: "translateY(0)" },
@@ -161,7 +157,7 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         // Personal Gallery
         "personal-gallery-grain":
-          "personal-gallery-grain 6s steps(10) infinite;",
+          "personal-gallery-grain 8s ease-in-out infinite",
         "personal-gallery-images":
           "personal-gallery-images 12s linear infinite",
       },

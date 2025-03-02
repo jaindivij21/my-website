@@ -56,12 +56,12 @@
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.16",
     "@types/ms": "^2.1.0",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.4.17",
     "concurrently": "^9.1.2",
-    "postcss": "^8.5.1",
+    "postcss": "^8.4.35",
     "prettier": "^3.5.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "prisma": "^6.3.1",
-    "tailwindcss": "^4.0.6"
+    "tailwindcss": "^3.4.1"
   }
 }

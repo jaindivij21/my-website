@@ -4,17 +4,17 @@ const MOBILE_BREAKPOINT = 640;
 
 function useWindowSize() {
   const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 0,
+    height: 0,
   });
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Set initial size once component mounts
+    handleResize();
+
     // Add event listener to window resize
     window.addEventListener("resize", handleResize);
-
-    // Initial check on mount
-    handleResize();
 
     // Remove event listener on component cleanup
     return () => {
@@ -31,7 +31,7 @@ function useWindowSize() {
     });
 
     // Check if window width is less than the mobile breakpoint
-    setIsMobile(innerWidth < MOBILE_BREAKPOINT);
+    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
   }
 
   return { ...windowSize, isMobile };
