@@ -17,7 +17,6 @@ import {
   useSpring,
   useTransform
 } from 'motion/react';
-import useWindowSize from '@/lib/hooks/use-window-size';
 
 // Constant and Interface Imports
 import { WORK_LISTINGS } from './constants/work-listing-card.constant';
@@ -26,6 +25,7 @@ import { WorkItem } from './models/work-listing.model';
 // Asset Imports
 import backgroundGrid from '../../../../public/images/background-grid.svg';
 import Icon from '@/components/shared/ui/building-blocks/icon';
+import { useIsMobile } from '@/lib/hooks/use-mobile';
 
 // Functions
 function useParallax(value: MotionValue<number>, distance: number) {
@@ -36,7 +36,7 @@ function useParallax(value: MotionValue<number>, distance: number) {
 // Description: This component lists down all the works that I do.
 export const WorksListingCard = () => {
   // Scroll Hook for the Progress Bar
-  const cardRef = useRef(null);
+  const cardRef = useRef<HTMLDivElement>(null);
   const cardScrollProgress = useScroll({
     container: cardRef
   });
@@ -83,11 +83,11 @@ const WorkListingItem = ({
   workItem,
   index
 }: {
-  cardRef: RefObject<HTMLDivElement>;
+  cardRef: RefObject<HTMLDivElement | null>;
   workItem: WorkItem;
   index: number;
 }) => {
-  const { isMobile } = useWindowSize();
+  const isMobile = useIsMobile();
   const router = useRouter();
 
   // Parallax Hook for the Image Scroll

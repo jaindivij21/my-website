@@ -16,23 +16,23 @@ import {
   CardTitle
 } from '@/components/shared/ui/building-blocks/card';
 
-// Utils and Models
+// Utility Imports
 import { FeaturedBlogModel } from './models/featured-highlights-card.model';
-import useWindowSize from '@/lib/hooks/use-window-size';
+import { useIsMobile } from '@/lib/hooks/use-mobile';
 
 // Constants
 import {
   contentAnimationVariants,
   footerAnimationVariants
 } from './constants/featured-highlights-card.constant';
-import { formatDate } from '@/lib/utils';
+import { formatDate } from '@/lib/utils/common';
 
 const FeaturedBlog = () => {
   // State
   const [isHovering, setIsHovering] = useState(false);
 
   // Variables
-  const { isMobile } = useWindowSize();
+  const isMobile = useIsMobile();
   const contentAnimationProps = !isMobile
     ? {
         initial: contentAnimationVariants.initial,
@@ -109,15 +109,6 @@ const FeaturedBlogContent = ({
 }: {
   featuredBlog: FeaturedBlogModel;
 }) => {
-  // Functions
-  function _formatDate(date: string) {
-    return formatDate(date, {
-      month: 'long',
-      day: 'numeric',
-      year: 'numeric'
-    });
-  }
-
   return (
     <Link
       href={featuredBlog.redirection_url}
@@ -141,7 +132,11 @@ const FeaturedBlogContent = ({
               </h4>
               <div className='flex flex-row space-x-4'>
                 <h6 className='rounded-lg bg-black bg-opacity-20 px-2.5 py-0.5 text-xs sm:text-sm'>
-                  {_formatDate(featuredBlog.blog_post.published_at)}
+                  {formatDate(featuredBlog.blog_post.published_at, {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric'
+                  })}
                 </h6>
                 <h6 className='rounded-lg bg-black bg-opacity-20 px-2.5 py-0.5 text-xs sm:text-sm'>
                   {featuredBlog.blog_post.published_by}

@@ -1,21 +1,42 @@
 'use client';
 
 // Essential Imports
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback, useMemo, memo, useState } from 'react';
 
 // Component Imports
 import createGlobe from 'cobe';
 
 // Utils Imports
 import { AspectRatio } from '@radix-ui/react-aspect-ratio';
-import { motion, useMotionValue } from 'motion/dist/react';
-import { useSpring } from 'motion/dist/react';
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  TargetAndTransition
+} from 'motion/react';
 
-const Globe = () => {
-  console.log('Globe component rendering');
+const Globe = memo(() => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
+  const [globeConfig, setGlobeConfig] = useState({
+    devicePixelRatio: 2,
+    width: 0,
+    height: 0,
+    phi: 0,
+    theta: 0.3,
+    dark: 1,
+    diffuse: 2.8,
+    mapSamples: 16000,
+    mapBrightness: 1.1,
+    baseColor: [1, 1, 1] as [number, number, number],
+    markerColor: [251 / 255, 200 / 255, 21 / 255] as [number, number, number],
+    glowColor: [1.2, 1.2, 1.2] as [number, number, number],
+    markers: [
+      { location: [28.61, 77.2] as [number, number], size: 0.1 },
+      { location: [40.71, -74.0] as [number, number], size: 0.1 }
+    ]
+  });
 
   const r = useMotionValue(0);
   const spring = useSpring(r, {
@@ -25,7 +46,13 @@ const Globe = () => {
   });
 
   useEffect(() => {
-    console.log('useEffect running, r value:', r.get());
+    setGlobeConfig((prev) => ({
+      ...prev,
+      devicePixelRatio: window.devicePixelRatio || 2
+    }));
+  }, []);
+
+  useEffect(() => {
     let phi = 0;
 
     if (!canvasRef.current) {
@@ -35,12 +62,7 @@ const Globe = () => {
 
     const canvas = canvasRef.current;
     let width = canvas.offsetWidth || 0;
-    console.log('Canvas initialized', {
-      width: canvas.offsetWidth,
-      height: canvas.offsetHeight
-    });
 
-    // Ensure we have a valid width before proceeding
     if (width === 0) {
       console.error('Canvas width is 0, waiting for proper initialization');
       return;
@@ -49,7 +71,6 @@ const Globe = () => {
     const onResize = () => {
       if (canvas) {
         width = canvas.offsetWidth;
-        console.log('Resize event', { width });
       }
     };
 
@@ -57,24 +78,10 @@ const Globe = () => {
     onResize();
 
     try {
-      console.log('Creating globe with width:', width);
       const globe = createGlobe(canvas, {
-        devicePixelRatio: window.devicePixelRatio || 2,
+        ...globeConfig,
         width: width * 2,
         height: width * 2,
-        phi: 0,
-        theta: 0.3,
-        dark: 1,
-        diffuse: 2.8,
-        mapSamples: 16000,
-        mapBrightness: 1.1,
-        baseColor: [1, 1, 1],
-        markerColor: [251 / 255, 200 / 255, 21 / 255],
-        glowColor: [1.2, 1.2, 1.2],
-        markers: [
-          { location: [28.61, 77.2], size: 0.1 },
-          { location: [40.71, -74.0], size: 0.1 }
-        ],
         onRender: (state) => {
           if (!pointerInteracting.current) {
             phi += 0.002;
@@ -85,66 +92,83 @@ const Globe = () => {
         }
       });
 
-      console.log('Globe created successfully');
       setTimeout(() => {
         if (canvas) {
           canvas.style.opacity = '1';
-          console.log('Canvas opacity set to 1');
         }
       });
 
       return () => {
-        console.log('Cleaning up globe');
         globe.destroy();
       };
     } catch (error) {
       console.error('Error creating globe:', error);
     }
-  }, [r]);
+  }, [r, globeConfig]);
 
-  // Functions
-  const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
-    pointerInteracting.current = e.clientX - pointerInteractionMovement.current;
-    canvasRef.current && (canvasRef.current.style.cursor = 'grabbing');
-  };
+  const handlePointerDown = useCallback(
+    (e: React.PointerEvent<HTMLCanvasElement>) => {
+      pointerInteracting.current =
+        e.clientX - pointerInteractionMovement.current;
+      canvasRef.current && (canvasRef.current.style.cursor = 'grabbing');
+    },
+    []
+  );
 
-  const handlePointerUp = () => {
+  const handlePointerUp = useCallback(() => {
     pointerInteracting.current = null;
     canvasRef.current && (canvasRef.current.style.cursor = 'grab');
-  };
+  }, []);
 
-  const handlePointerOut = () => {
+  const handlePointerOut = useCallback(() => {
     pointerInteracting.current = null;
     canvasRef.current && (canvasRef.current.style.cursor = 'grab');
-  };
+  }, []);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (pointerInteracting.current !== null) {
-      const delta = e.clientX - pointerInteracting.current;
-      pointerInteractionMovement.current = delta;
-      r.set(delta / 200);
-    }
-  };
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLCanvasElement>) => {
+      if (pointerInteracting.current !== null) {
+        const delta = e.clientX - pointerInteracting.current;
+        pointerInteractionMovement.current = delta;
+        r.set(delta / 200);
+      }
+    },
+    [r]
+  );
 
-  const handleTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
-    if (pointerInteracting.current !== null && e.touches[0]) {
-      const delta = e.touches[0].clientX - pointerInteracting.current;
-      pointerInteractionMovement.current = delta;
-      r.set(delta / 50);
-    }
-  };
+  const handleTouchMove = useCallback(
+    (e: React.TouchEvent<HTMLCanvasElement>) => {
+      if (pointerInteracting.current !== null && e.touches[0]) {
+        const delta = e.touches[0].clientX - pointerInteracting.current;
+        pointerInteractionMovement.current = delta;
+        r.set(delta / 50);
+      }
+    },
+    [r]
+  );
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{
+  const containerVariants = useMemo(
+    () => ({
+      initial: { opacity: 0, scale: 0.5 },
+      animate: { opacity: 1, scale: 1 },
+      transition: {
         duration: 0.5,
         ease: [0, 0.71, 0.2, 1.01]
-      }}
-      className='m-auto w-full max-w-5xl'
-    >
-      <motion.div whileHover={{ scale: [null, 1.1, 1.05] }}>
+      }
+    }),
+    []
+  );
+
+  const hoverVariants = useMemo(
+    () => ({
+      whileHover: { scale: [1, 1.1, 1.05] } as TargetAndTransition
+    }),
+    []
+  );
+
+  return (
+    <motion.div {...containerVariants} className='m-auto w-full max-w-5xl'>
+      <motion.div {...hoverVariants}>
         <AspectRatio ratio={1 / 1}>
           <motion.canvas
             ref={canvasRef}
@@ -166,6 +190,8 @@ const Globe = () => {
       </motion.div>
     </motion.div>
   );
-};
+});
+
+Globe.displayName = 'Globe';
 
 export default Globe;

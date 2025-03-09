@@ -22,10 +22,10 @@ export default function HomeBackground({
         placeholder='blur'
         quality={85}
         priority={priority}
-        fill
         sizes='100vw'
         style={{
           objectFit: 'cover',
+          width: '100%',
           zIndex: -1
         }}
         className={cn(
@@ -42,10 +42,10 @@ export default function HomeBackground({
         placeholder='blur'
         quality={85}
         priority={priority}
-        fill
         sizes='100vw'
         style={{
           objectFit: 'cover',
+          width: '100%',
           zIndex: -1
         }}
         className={cn(

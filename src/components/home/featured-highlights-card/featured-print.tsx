@@ -30,7 +30,7 @@ const FeaturedPrint = () => {
   const [isHovering, setIsHovering] = useState(false);
 
   // Variables
-  const { isMobile } = useWindowSize();
+  const isMobile = useIsMobile();
   const contentAnimationProps = !isMobile
     ? {
         initial: contentAnimationVariants.initial,

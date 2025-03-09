@@ -4,7 +4,7 @@
 import Image from 'next/image';
 
 // Utils Imports
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/common';
 
 // Asset Imports
 import { IMAGE_URLS } from './constants/infinite-gallery.constant';

@@ -14,11 +14,11 @@ import Icon from '@/components/shared/ui/building-blocks/icon';
 
 // Utils Imports
 import { ProgressIconModel } from './models/auxillary-info.model';
-import { cn } from '@/lib/utils';
-import useWindowSize from '@/lib/hooks/use-window-size';
+import { cn } from '@/lib/utils/common';
+import { useIsMobile } from '@/lib/hooks/use-mobile';
 
 const ProgressIcon = ({ icon }: { icon: ProgressIconModel }) => {
-  const { isMobile } = useWindowSize();
+  const isMobile = useIsMobile();
 
   return (
     <TooltipProvider>
