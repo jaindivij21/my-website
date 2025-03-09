@@ -1,3 +1,5 @@
+import { ComponentType } from 'react';
+
 export type IconName =
   | 'compass'
   | 'binary'
@@ -9,5 +11,5 @@ export interface SubHeading {
   title: string;
   href: string;
   description: string;
-  iconName: IconName;
+  icon: ComponentType<{ className?: string }>;
 }

@@ -1,18 +1,25 @@
 // Utility Imports
 import { SubHeading } from '../interfaces/header.interface';
+import {
+  AwardIcon,
+  AtSignIcon,
+  BinaryIcon,
+  CompassIcon,
+  VenetianMaskIcon
+} from '@/components/shared/icons';
 
 const BLOG_SUBHEADINGS: SubHeading[] = [
   {
     title: 'Lifestyle and Travel',
     href: '/blog/lifestyle-travel',
     description: "Globetrotting to curate life's gallery.",
-    iconName: 'compass'
+    icon: CompassIcon
   },
   {
     title: 'Technology',
     href: '/blog/technology',
     description: 'Navigating the digital frontier.',
-    iconName: 'binary'
+    icon: BinaryIcon
   }
 ];
 
@@ -21,19 +28,19 @@ const ABOUT_SUBHEADINGS: SubHeading[] = [
     title: 'Resume',
     href: '/profile/resume',
     description: 'Portfolio showcasing my professional journey.',
-    iconName: 'award'
+    icon: AwardIcon
   },
   {
     title: 'About Me',
     href: '/profile/me',
     description: 'A little bit about me.',
-    iconName: 'venetian-mask'
+    icon: VenetianMaskIcon
   },
   {
     title: 'Contact Me',
     href: '/profile/about-me#contact',
     description: 'Get in touch.',
-    iconName: 'at-sign'
+    icon: AtSignIcon
   }
 ];
 

@@ -12,9 +12,16 @@ export { default as InstagramIcon } from './social/instagram-icon';
 export { default as FacebookIcon } from './social/facebook-icon';
 export { default as BuyMeCoffeeIcon } from './social/buy-me-coffee-icon';
 
-// UI Icons
-export { default as Logo } from './others/logo';
-export { default as HeaderSelection } from './others/header-selection';
+// Other UI Icons
+export { default as AwardIcon } from './others/award-icon';
+export { default as AtSignIcon } from './others/at-sign-icon';
+export { default as BinaryIcon } from './others/binary-icon';
+export { default as CompassIcon } from './others/compass-icon';
+export { default as VenetianMaskIcon } from './others/venetian-mask-icon';
+
+// Website Icons
+export { default as Logo } from './website/logo';
+export { default as HeaderSelection } from './website/header-selection';
 
 // Loading Icons
 export { default as LoadingSpinnerIcon } from './loading/loading-spinner';

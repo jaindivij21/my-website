@@ -18,12 +18,18 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@/components/shared/ui/building-blocks/accordion';
-import { Logo } from '../../shared/icons';
+import { HeaderSelection, Logo } from '../../shared/icons';
+import {
+  AwardIcon,
+  AtSignIcon,
+  BinaryIcon,
+  CompassIcon,
+  VenetianMaskIcon
+} from '@/components/shared/icons';
 
 // Utility Imports
 import { Menu } from 'lucide-react';
 import { navItems } from './constants/header.constant';
-import HeaderSelection from '@/components/shared/icons/others/header-selection';
 
 export const MobileNavBar = () => {
   const pathname = usePathname();
@@ -86,7 +92,10 @@ const MobileNavigationItems = memo(
                         href={subItem.href}
                         className='block py-2 text-sm text-muted-foreground hover:text-foreground'
                       >
-                        <div className='font-medium'>{subItem.title}</div>
+                        <div className='flex items-center gap-2 font-medium'>
+                          <subItem.icon className='h-4 w-4' />
+                          {subItem.title}
+                        </div>
                         <p className='text-xs text-muted-foreground/80'>
                           {subItem.description}
                         </p>
