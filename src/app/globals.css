@@ -102,7 +102,7 @@
   }
 
   *::-webkit-scrollbar-track {
-    background: hsl(hsl(240 5% 64.9%));
+    background: hsl(240 5% 64.9%);
     border-radius: 5px;
   }
 
