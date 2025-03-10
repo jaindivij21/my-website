@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [{ protocol: 'https', hostname: 'cloudinary.com' }]
+    remotePatterns: [{ protocol: 'https', hostname: 'res.cloudinary.com' }]
   },
   transpilePackages: ['geist', 'lucide-react'],
   reactStrictMode: true,

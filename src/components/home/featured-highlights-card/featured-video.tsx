@@ -16,7 +16,7 @@ import { AspectRatio } from '@/components/shared/ui/building-blocks/aspect-ratio
 
 // Utils and Models
 import { FeaturedVideoModel } from './models/featured-highlights-card.model';
-import useWindowSize from '@/lib/hooks/use-window-size';
+import { useIsMobile } from '@/lib/hooks/use-mobile';
 
 // Constants
 import {

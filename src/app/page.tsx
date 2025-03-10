@@ -31,39 +31,6 @@ export default function HomePage() {
             <TextTicker aria-label='Scrolling Text' />
           </section>
         </div>
-
-        {/* SECTION: Content Cards Section */}
-        <section
-          aria-label='Featured Content'
-          className='flex flex-col gap-y-16'
-        >
-          {/* SUBSECTION: Featured Highlights */}
-          <article aria-label='Featured Highlights'>
-            <FeaturedHighlightsCard>
-              <FeaturedHighlightsCardContent />
-            </FeaturedHighlightsCard>
-          </article>
-
-          {/* SUBSECTION: Work Portfolio */}
-          <article aria-label='Work Portfolio'>
-            <WorksListingCard />
-          </article>
-
-          {/* SUBSECTION: Personal Gallery */}
-          <article aria-label='Personal Gallery'>
-            <PersonalGalleryCard />
-          </article>
-
-          {/* SUBSECTION: Additional Information */}
-          <article aria-label='Additional Information'>
-            <AuxillaryInfoCard />
-          </article>
-        </section>
-
-        {/* SECTION: Newsletter Section */}
-        <section aria-label='Newsletter Signup'>
-          <Newsletter />
-        </section>
       </div>
     </>
   );

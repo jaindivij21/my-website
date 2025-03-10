@@ -58,7 +58,7 @@ const FeaturedBlog = () => {
     redirection_url: '/blog/lifestyle-travel',
     blog_post: {
       image_src:
-        'https://lh3.googleusercontent.com/pw/ABLVV878TiB45YWkyLU-uZozp2c_ekzP8KcI1oQTP5F51oGIEk7nP-9W5_3gsYUuWeyDN8CkiAGtKsSy1LipUecc7uEbHWi6XUeu1335o88_82SCydrv0ohuJ1snwBLwVYXHYByv2A2xrvJPtkeELuP2D_HMnQ=w3124-h2018-s-no-gm',
+        'https://res.cloudinary.com/dxeimkzxk/image/upload/1_q4b6bo.jpg',
       image_alt: 'Featured Blog Image',
       published_at: '2021-10-01T00:00:00.000Z',
       published_by: 'Divij Jain',

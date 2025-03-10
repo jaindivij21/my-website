@@ -16,8 +16,8 @@ import {
 } from '@/components/shared/ui/building-blocks/card';
 
 // Utils and Models
-import useWindowSize from '@/lib/hooks/use-window-size';
 import { FeaturedPrintModel } from './models/featured-highlights-card.model';
+import { useIsMobile } from '@/lib/hooks/use-mobile';
 
 // Constants
 import {
@@ -56,7 +56,7 @@ const FeaturedPrint = () => {
     redirection_url: '/shop',
     print: {
       image_src:
-        'https://lh3.googleusercontent.com/pw/ABLVV84DTv7KM_4rOBKLIFmRzHlzBbrGwQ3wKCBj4FgXe2sbeZkayDOsVjEUtWxnsZFYH-eht-ZzEeuDVf3l4ae1KaK5_jb0cqgDOEB6GHdAgxVuhNjPoNo_3L3fD2vBVJ4_XzBhuD6y5U33aG5lVxntr9YULQ=w3124-h2082-s-no-gm',
+        'https://res.cloudinary.com/dxeimkzxk/image/upload/2_wfyy9h.jpg',
       image_alt: 'The Scattered Thoughts of a Creative Mind'
     }
   };
