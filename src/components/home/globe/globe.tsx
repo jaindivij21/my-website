@@ -17,8 +17,10 @@ import {
 
 const Globe = memo(() => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [globeConfig, setGlobeConfig] = useState({
     devicePixelRatio: 2,
     width: 0,
@@ -45,6 +47,7 @@ const Globe = memo(() => {
     stiffness: 50
   });
 
+  // Update device pixel ratio based on device
   useEffect(() => {
     setGlobeConfig((prev) => ({
       ...prev,
@@ -52,51 +55,80 @@ const Globe = memo(() => {
     }));
   }, []);
 
+  // Handle resize properly and update dimensions
+  useEffect(() => {
+    if (!canvasRef.current || !containerRef.current) return;
+
+    const updateDimensions = () => {
+      if (!canvasRef.current || !containerRef.current) return;
+
+      const container = containerRef.current;
+      const containerWidth = container.clientWidth;
+      const containerHeight = container.clientHeight;
+
+      // Set dimensions for proper centering
+      setDimensions({
+        width: containerWidth,
+        height: containerHeight
+      });
+
+      // Update canvas size to match container
+      if (canvasRef.current) {
+        canvasRef.current.width =
+          containerWidth * (window.devicePixelRatio || 2);
+        canvasRef.current.height =
+          containerHeight * (window.devicePixelRatio || 2);
+        canvasRef.current.style.width = `${containerWidth}px`;
+        canvasRef.current.style.height = `${containerHeight}px`;
+      }
+    };
+
+    // Initial size update
+    updateDimensions();
+
+    // Set up resize listener
+    window.addEventListener('resize', updateDimensions);
+
+    // Also listen for orientation changes on mobile
+    window.addEventListener('orientationchange', updateDimensions);
+
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+      window.removeEventListener('orientationchange', updateDimensions);
+    };
+  }, []);
+
+  // Create and manage the globe
   useEffect(() => {
     let phi = 0;
 
-    if (!canvasRef.current) {
-      console.error('Canvas ref is not available');
+    if (!canvasRef.current || dimensions.width === 0) {
       return;
     }
 
     const canvas = canvasRef.current;
-    let width = canvas.offsetWidth || 0;
-
-    if (width === 0) {
-      console.error('Canvas width is 0, waiting for proper initialization');
-      return;
-    }
-
-    const onResize = () => {
-      if (canvas) {
-        width = canvas.offsetWidth;
-      }
-    };
-
-    window.addEventListener('resize', onResize);
-    onResize();
 
     try {
       const globe = createGlobe(canvas, {
         ...globeConfig,
-        width: width * 2,
-        height: width * 2,
+        width: dimensions.width * (window.devicePixelRatio || 2),
+        height: dimensions.height * (window.devicePixelRatio || 2),
         onRender: (state) => {
           if (!pointerInteracting.current) {
             phi += 0.002;
           }
           state.phi = phi + r.get();
-          state.width = width * 2;
-          state.height = width * 2;
+          state.width = dimensions.width * (window.devicePixelRatio || 2);
+          state.height = dimensions.height * (window.devicePixelRatio || 2);
         }
       });
 
+      // Make canvas visible after initialization
       setTimeout(() => {
         if (canvas) {
           canvas.style.opacity = '1';
         }
-      });
+      }, 200);
 
       return () => {
         globe.destroy();
@@ -104,7 +136,7 @@ const Globe = memo(() => {
     } catch (error) {
       console.error('Error creating globe:', error);
     }
-  }, [r, globeConfig]);
+  }, [r, globeConfig, dimensions]);
 
   const handlePointerDown = useCallback(
     (e: React.PointerEvent<HTMLCanvasElement>) => {
@@ -141,7 +173,12 @@ const Globe = memo(() => {
       if (pointerInteracting.current !== null && e.touches[0]) {
         const delta = e.touches[0].clientX - pointerInteracting.current;
         pointerInteractionMovement.current = delta;
-        r.set(delta / 50);
+
+        // More responsive touch movement for mobile (smaller divisor)
+        r.set(delta / 100);
+
+        // Prevent default touch behavior to avoid page scrolling while interacting with globe
+        e.preventDefault();
       }
     },
     [r]
@@ -161,14 +198,18 @@ const Globe = memo(() => {
 
   const hoverVariants = useMemo(
     () => ({
-      whileHover: { scale: [1, 1.1, 1.05] } as TargetAndTransition
+      whileHover: { scale: [1, 1.05, 1.02] } as TargetAndTransition
     }),
     []
   );
 
   return (
-    <motion.div {...containerVariants} className='m-auto w-full max-w-5xl'>
-      <motion.div {...hoverVariants}>
+    <motion.div
+      {...containerVariants}
+      ref={containerRef}
+      className='m-auto flex w-full max-w-5xl items-center justify-center'
+    >
+      <motion.div {...hoverVariants} className='w-full'>
         <AspectRatio ratio={1 / 1}>
           <motion.canvas
             ref={canvasRef}
@@ -177,14 +218,26 @@ const Globe = memo(() => {
             onPointerOut={handlePointerOut}
             onMouseMove={handleMouseMove}
             onTouchMove={handleTouchMove}
+            onTouchStart={(e) => {
+              if (e.touches[0]) {
+                pointerInteracting.current =
+                  e.touches[0].clientX - pointerInteractionMovement.current;
+                canvasRef.current &&
+                  (canvasRef.current.style.cursor = 'grabbing');
+              }
+            }}
+            onTouchEnd={handlePointerUp}
             transition={{
               type: 'spring',
               damping: 3000,
               mass: 100,
               stiffness: 50
             }}
-            style={{ opacity: 0 }}
-            className='h-full w-full cursor-grab transition-opacity duration-1000 ease-in-out contain-size contain-layout contain-paint'
+            style={{
+              opacity: 0,
+              touchAction: 'none' // Prevent browser touch actions while interacting
+            }}
+            className='m-auto h-full w-full cursor-grab transition-opacity duration-1000 ease-in-out contain-size contain-layout contain-paint'
           />
         </AspectRatio>
       </motion.div>
