@@ -10,7 +10,6 @@ import {
   TooltipProvider,
   TooltipTrigger
 } from '@/components/shared/ui/building-blocks/tooltip';
-import Icon from '@/components/shared/ui/building-blocks/icon';
 
 // Utils Imports
 import { ProgressIconModel } from './models/auxillary-info.model';
@@ -36,7 +35,7 @@ const ProgressIcon = ({ icon }: { icon: ProgressIconModel }) => {
             }}
             transition={{ duration: 0.5 }}
           >
-            <Icon name={icon.name} size={isMobile ? 10 : 16} />
+            {/* <Icon name={icon.name} size={isMobile ? 10 : 16} /> */}
           </motion.div>
         </TooltipTrigger>
         <TooltipContent>

@@ -7,7 +7,6 @@ import { Card, CardContent } from '../../shared/ui/building-blocks/card';
 import CurrentTime from './current-time';
 
 // Assets Imports
-import worldMap from '../../../../public/images/world-map.svg';
 import { CloudRain } from 'lucide-react';
 
 // Utils Imports
@@ -73,7 +72,7 @@ export const AuxillaryInfoCard = () => {
               {/* SUBSECTION: Background - World Map */}
               <Image
                 alt='Card Background: An image of a world map.'
-                src={worldMap}
+                src='https://res.cloudinary.com/dxeimkzxk/image/upload/t_Banner 16:9/v1741639908/world-map_pahii8.svg'
                 fill
                 style={{
                   objectFit: 'cover'
@@ -83,7 +82,7 @@ export const AuxillaryInfoCard = () => {
               />
 
               {/* SUBSECTION: Content */}
-              <div className='flex h-full flex-col items-center justify-center font-mono text-sm x-sm:text-lg lg:text-2xl'>
+              <div className='relative flex h-full flex-col items-center justify-center font-mono text-sm x-sm:text-lg lg:text-2xl'>
                 <div className='flex items-center gap-x-4 font-light'>
                   <CloudRain size={16} />
                   <div>{location}</div>

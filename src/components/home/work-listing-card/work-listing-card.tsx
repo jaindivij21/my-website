@@ -24,8 +24,8 @@ import { WorkItem } from './models/work-listing.model';
 
 // Asset Imports
 import backgroundGrid from '../../../../public/images/background-grid.svg';
-import Icon from '@/components/shared/ui/building-blocks/icon';
 import { useIsMobile } from '@/lib/hooks/use-mobile';
+import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 
 // Functions
 function useParallax(value: MotionValue<number>, distance: number) {
@@ -155,11 +155,7 @@ const WorkListingItem = ({
       {/* Chevrons */}
       {index === 0 || index === WORK_LISTINGS.length - 1 ? (
         <div className='absolute bottom-2.5 right-2.5 animate-bounce opacity-40'>
-          {index === 0 ? (
-            <Icon name='chevrons-down' />
-          ) : (
-            <Icon name='chevrons-up' />
-          )}
+          {index === 0 ? <ChevronDownIcon /> : <ChevronUpIcon />}
         </div>
       ) : (
         <></>
@@ -177,10 +173,10 @@ const WorkListingItemDescription = ({ workItem }: { workItem: WorkItem }) => {
         </span>
       </h2>
       <div className='mb-2 flex flex-row items-center sm:mb-0'>
-        <Icon
+        {/* <Icon
           name={workItem.icon_name}
           className='mr-2 h-4 w-4 sm:mr-4 sm:h-6 sm:w-6'
-        />
+        /> */}
         <h4 className='font-heading text-sm font-semibold uppercase tracking-wider 3x-sm:text-lg sm:text-xl xl:text-2xl'>
           {workItem.subheading}
         </h4>

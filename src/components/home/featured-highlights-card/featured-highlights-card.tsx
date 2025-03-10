@@ -47,8 +47,8 @@ export const FeaturedHighlightsCard = ({
           onMouseLeave={plugin.current.reset}
         >
           {children}
-          <CarouselPrevious className='left-2.5 sm:-left-12' />
-          <CarouselNext className='right-2.5 sm:-right-12' />
+          <CarouselPrevious className='-left-0.5 sm:-left-14' />
+          <CarouselNext className='-right-0.5 sm:-right-12' />
         </Carousel>
       </CardContent>
     </Card>

@@ -18,7 +18,7 @@ export default function HomePage() {
 
       {/* Main Content Container */}
       <div className='relative mx-auto max-w-7xl overflow-hidden px-4'>
-        <div className='flex flex-col space-y-16 pt-20 2x-sm:pt-36 sm:pt-24 lg:pt-52'>
+        <div className='flex flex-col gap-y-16 pt-20 2x-sm:pt-36 sm:pt-24 lg:gap-y-36 lg:pt-52'>
           {/* SECTION: Hero Section */}
           <section aria-label='Hero Section' className='flex flex-col'>
             {/* SUBSECTION: Hero Title Section */}
@@ -29,6 +29,39 @@ export default function HomePage() {
 
             {/* SUBSECTION: Dynamic Text Ticker */}
             <TextTicker aria-label='Scrolling Text' />
+          </section>
+
+          {/* SECTION: Content Cards Section */}
+          <section
+            aria-label='Featured Content'
+            className='flex flex-col gap-y-16'
+          >
+            {/* SUBSECTION: Featured Highlights */}
+            <article aria-label='Featured Highlights'>
+              <FeaturedHighlightsCard>
+                <FeaturedHighlightsCardContent />
+              </FeaturedHighlightsCard>
+            </article>
+
+            {/* SUBSECTION: Work Portfolio */}
+            <article aria-label='Work Portfolio'>
+              <WorksListingCard />
+            </article>
+
+            {/* SUBSECTION: Personal Gallery */}
+            <article aria-label='Personal Gallery'>
+              <PersonalGalleryCard />
+            </article>
+
+            {/* SUBSECTION: Additional Information */}
+            <article aria-label='Additional Information'>
+              <AuxillaryInfoCard />
+            </article>
+          </section>
+
+          {/* SECTION: Newsletter Section */}
+          <section aria-label='Newsletter Signup'>
+            <Newsletter />
           </section>
         </div>
       </div>
